@@ -2386,20 +2386,12 @@
                 <h4>Auto CSAT Survey</h4>
                 <p>Giao hàng 7 ngày → auto ZNS khảo sát → flag score thấp.</p>
             </div>
-            <div class="suggest-card">
-                <div class="s-icon">🧾</div>
-                <h4>Auto E-Invoice</h4>
-                <p>Sau thanh toán → tự xuất hóa đơn điện tử + email.</p>
-            </div>
+
         </div>
         
         <h3 style="font-size:1rem;margin:30px 0 20px;color:var(--gold)">📊 Advanced Analytics</h3>
         <div class="suggest-grid">
-            <div class="suggest-card">
-                <div class="s-icon">🧠</div>
-                <h4>Lead Scoring</h4>
-                <p>ML dự đoán xác suất close deal.</p>
-            </div>
+
             <div class="suggest-card">
                 <div class="s-icon">📉</div>
                 <h4>Churn Prediction</h4>
@@ -2410,11 +2402,7 @@
                 <h4>Demand Forecasting</h4>
                 <p>Dự đoán nhu cầu theo SKU/tháng.</p>
             </div>
-            <div class="suggest-card">
-                <div class="s-icon">🏪</div>
-                <h4>Order Tracking</h4>
-                <p>Khách nhập SĐT → xem trạng thái SX.</p>
-            </div>
+
         </div>
     </section>
 
@@ -2422,6 +2410,65 @@
 
     <!-- ========== NGÂN SÁCH ========== -->
     <section id="budget">
+        <style>
+            #budget .grid-3 {
+                align-items: stretch;
+            }
+            #budget .grid-3 > .card {
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+            }
+            #budget .card > h3 {
+                margin-top: 20px !important;
+                min-height: 56px; 
+            }
+            #budget .card > p {
+                min-height: 50px; 
+            }
+            
+            /* Ép Bảng thành Flexbox để khoá cứng chiều cao tuyệt đối, chống auto-expand của HTML Table */
+            #budget .card table.info-table,
+            #budget .card table.info-table tbody {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+            }
+            #budget .card table.info-table tr {
+                display: flex;
+                width: 100%;
+            }
+            #budget .card table.info-table th {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            #budget .card table.info-table td {
+                width: 50%;
+                display: flex;
+                align-items: flex-start; /* Gióng mép trên để text dễ đọc */
+                padding-top: 10px; /* Khoảng cách lề trên */
+                border-bottom: 1px solid rgba(255,255,255,0.05);
+            }
+
+            /* Bảng 1 (Cấu hình) */
+            #budget .card table.info-table:nth-of-type(1) tr {
+                height: 64px; /* Tăng từ 48px lên 64px (Đủ không gian cho 3 dòng ráp lại) */
+            }
+            /* Bảng 2 (Ưu/Nhược điểm) */
+            #budget .card table.info-table:nth-of-type(2) tr {
+                height: 110px; /* Tăng kỷ lục từ 80px lên 110px (Thừa sức cho 5 dòng văn bản không đụng nhau) */
+            }
+            /* Header của bảng */
+            #budget .card table.info-table th {
+                height: 48px !important;
+            }
+
+            #budget .card > div:last-child {
+                margin-top: auto; 
+            }
+        </style>
         <div class="section-label">Budget Planning</div>
         <h2 class="section-title">💰 Ngân Sách & Hạ Tầng Triển Khai</h2>
         <p class="section-desc">So sánh 3 phương án hạ tầng cho dự án Data Warehouse & hệ sinh thái IT 2026 — từ tiết kiệm đến enterprise-grade.</p>
@@ -2453,6 +2500,8 @@
                     <tr><th colspan="2" style="text-align:center;background:rgba(184,84,80,0.08);color:var(--red);">❌ Nhược điểm</th></tr>
                     <tr><td>Tự quản lý</td><td>Cần cài đặt &amp; cấu hình thủ công</td></tr>
                     <tr><td>Không managed DB</td><td>Tự backup, tự monitor</td></tr>
+                    <tr><td style="border:none">&nbsp;</td><td style="border:none">&nbsp;</td></tr>
+                    <tr><td style="border:none">&nbsp;</td><td style="border:none">&nbsp;</td></tr>
                 </table>
                 <div style="background:rgba(74,124,89,0.08);border-radius:10px;padding:14px;text-align:center;">
                     <div style="font-size:1.5rem;font-weight:800;color:#4a7c59;">16,200,000 ₫/năm</div>
@@ -2482,6 +2531,8 @@
                     <tr><th colspan="2" style="text-align:center;background:rgba(184,84,80,0.08);color:var(--red);">❌ Nhược điểm</th></tr>
                     <tr><td>Chi phí cao hơn SSD 03</td><td>~8 triệu/năm chênh lệch</td></tr>
                     <tr><td>Có thể dư trong 2026</td><td>Nên bắt đầu SSD 03, nâng sau</td></tr>
+                    <tr><td style="border:none">&nbsp;</td><td style="border:none">&nbsp;</td></tr>
+                    <tr><td style="border:none">&nbsp;</td><td style="border:none">&nbsp;</td></tr>
                 </table>
                 <div style="background:rgba(222,170,124,0.08);border-radius:10px;padding:14px;text-align:center;">
                     <div style="font-size:1.5rem;font-weight:800;color:var(--gold);">24,200,000 ₫/năm</div>
@@ -2501,11 +2552,13 @@
                     <tr><td>UPS, rack, cooling</td><td>Thiết bị đi kèm</td></tr>
                     <tr><td>Uptime</td><td>Phụ thuộc điện &amp; mạng VP</td></tr>
                     <tr><td>Support</td><td>Nội bộ tự xử lý</td></tr>
+                    <tr><td style="border:none">&nbsp;</td><td style="border:none">&nbsp;</td></tr>
                 </table>
                 <table class="info-table" style="margin-bottom:16px;">
                     <tr><th colspan="2" style="text-align:center;background:rgba(183,169,151,0.1);color:var(--stone);">✅ Ưu điểm</th></tr>
                     <tr><td>Data nội bộ 100%</td><td>Không phụ thuộc internet</td></tr>
                     <tr><td>Không tốn phí tháng</td><td>Chi phí vận hành thấp dài hạn</td></tr>
+                    <tr><td style="border:none">&nbsp;</td><td style="border:none">&nbsp;</td></tr>
                     <tr><th colspan="2" style="text-align:center;background:rgba(184,84,80,0.08);color:var(--red);">❌ Nhược điểm</th></tr>
                     <tr><td>Đầu tư ban đầu lớn</td><td>80–150 triệu phần cứng</td></tr>
                     <tr><td>Rủi ro vật lý</td><td>Mất điện, hỏng ổ cứng = mất data</td></tr>
