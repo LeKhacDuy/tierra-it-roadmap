@@ -2311,7 +2311,7 @@
         <div class="highlight-box" style="margin-top: 10px; margin-bottom: 0; background:linear-gradient(135deg,rgba(200,146,58,0.08),rgba(200,146,58,0.02));border-color:rgba(200,146,58,0.25)">
             <p style="font-size:1.0rem;font-weight:600; margin-bottom: 10px;"><span style="color:var(--gold)">💡 Mẹo thực thi chuyên sâu (Technical Tips):</span></p>
             <ul style="font-size:0.9rem; color: var(--text); padding-left:20px; line-height:1.6; margin:0;">
-                <li style="margin-bottom: 8px;"><strong>Gắn Metadata trực tiếp vào DWH:</strong> Dùng Data Catalog tool (Google Dataplex/DataHub) tự động Tag PII/Sensitive. Khi cần xuất báo cáo cho thanh tra chỉ mất 5 phút (ra 50% hồ sơ).</li>
+                <li style="margin-bottom: 8px;"><strong>Gắn Metadata trực tiếp vào DWH:</strong> Dùng Data Catalog tool (Google Dataplex/DataHub) tự động Tag PII/Sensitive. Khi cần xuất báo cáo cho thanh tra chỉ mất 5 phút (ra dữ liệu khách hàng được lưu trữ trên hệ thống như: Họ & tên, SĐT, Email,...).</li>
                 <li style="margin-bottom: 8px;"><strong>Sử dụng Infrastructure as Code (IaC):</strong> Dùng Terraform script cấp phát IAM làm minh chứng pháp lý cho "Quy trình phân quyền" hoàn hảo.</li>
                 <li><strong>Tích cực triển khai Consent Flag:</strong> Tạo trường <code style="background:var(--card-bg);padding:2px 6px;border-radius:4px;color:#ec4899;border:1px solid rgba(255,255,255,0.1);font-family:monospace;font-size:0.8rem;">is_consented</code> trong Dimension_Customer. Nếu cờ False, Pipeline ETL tự động Drop/Mask record đó. Tối thượng của việc tuân thủ ý chí KH.</li>
             </ul>
