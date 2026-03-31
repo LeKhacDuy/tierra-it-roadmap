@@ -1,0 +1,2594 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Roadmap 2026 — Tierra Diamond</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #F8F4E9;
+            --secondary: #f0e9d8;
+            --accent: #6E4C3F;
+            --gold: #DEAA7C;
+            --gold-light: #ecc9a0;
+            --text: #1a0f0a;
+            --text-muted: #7a6a5e;
+            --card-bg: rgba(110, 76, 63, 0.05);
+            --card-border: rgba(110, 76, 63, 0.15);
+            --green: #4a7c59;
+            --red: #b85450;
+            --yellow: #c8923a;
+            --blue: #4a6d8c;
+            --cyan: #4a8c84;
+            --purple: #7a5c8c;
+            --earth: #6E4C3F;
+            --stone: #B7A997;
+            --noir: #000000
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--primary);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 40px;
+            background: linear-gradient(150deg, #F8F4E9 0%, #f0e9d8 50%, #e8ddc8 100%);
+            position: relative;
+            overflow: hidden
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 700px;
+            height: 700px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(222, 170, 124, 0.2), transparent 70%);
+            top: -250px;
+            right: -200px
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(110, 76, 63, 0.08), transparent 70%);
+            bottom: -150px;
+            left: -100px
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 24px;
+            border: 1px solid #6E4C3F;
+            border-radius: 100px;
+            color: #6E4C3F;
+            font-size: .8rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            z-index: 1;
+            position: relative
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            z-index: 1;
+            position: relative;
+            color: #1a0f0a
+        }
+
+        .hero h1 span {
+            color: #DEAA7C
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #7a6a5e;
+            max-width: 650px;
+            margin-bottom: 40px;
+            z-index: 1;
+            position: relative
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 50px;
+            z-index: 1;
+            position: relative;
+            flex-wrap: wrap;
+            justify-content: center
+        }
+
+        .hero-stat {
+            text-align: center
+        }
+
+        .hero-stat .num {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #6E4C3F
+        }
+
+        .hero-stat .lbl {
+            font-size: .75rem;
+            color: #B7A997;
+            letter-spacing: 2px;
+            text-transform: uppercase
+        }
+
+        .hero-meta {
+            display: flex;
+            gap: 40px;
+            color: #B7A997;
+            font-size: .85rem;
+            z-index: 1;
+            position: relative;
+            margin-top: 40px
+        }
+
+        section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 80px 40px
+        }
+
+        .section-label {
+            color: var(--gold);
+            font-size: .75rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 12px
+        }
+
+        .section-title {
+            font-size: clamp(1.5rem, 3vw, 2.2rem);
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.3
+        }
+
+        .section-desc {
+            color: var(--text-muted);
+            font-size: 1rem;
+            max-width: 700px;
+            margin-bottom: 50px
+        }
+
+        .divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--card-border), transparent)
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin: 30px 0
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin: 30px 0
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin: 30px 0
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 28px;
+            transition: transform .3s, border-color .3s
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            border-color: var(--gold)
+        }
+
+        .card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px
+        }
+
+        .card p,
+        .card li {
+            color: var(--text-muted);
+            font-size: .85rem
+        }
+
+        .card ul {
+            list-style: none;
+            margin-top: 8px
+        }
+
+        .card ul li {
+            padding: 4px 0;
+            padding-left: 18px;
+            position: relative
+        }
+
+        .card ul li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--gold)
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 32px;
+            position: relative;
+            overflow: hidden;
+            transition: transform .3s
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px)
+        }
+
+        .project-card.core {
+            border-color: rgba(201, 168, 76, 0.4)
+        }
+
+        .project-card.core::after {
+            content: '🎯 CORE';
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: rgba(201, 168, 76, 0.15);
+            color: var(--gold);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: .65rem;
+            font-weight: 700;
+            letter-spacing: 1px
+        }
+
+        .project-card.parallel::after {
+            content: '🔄 SONG SONG';
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: rgba(96, 165, 250, 0.15);
+            color: var(--blue);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: .65rem;
+            font-weight: 700;
+            letter-spacing: 1px
+        }
+
+        .project-icon {
+            font-size: 2.5rem;
+            margin-bottom: 16px
+        }
+
+        .project-card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 8px
+        }
+
+        .project-card .desc {
+            color: var(--text-muted);
+            font-size: .85rem;
+            margin-bottom: 16px
+        }
+
+        .project-card .time {
+            color: var(--gold);
+            font-size: .82rem;
+            font-weight: 600
+        }
+
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: .88rem
+        }
+
+        .info-table th {
+            background: rgba(201, 168, 76, 0.1);
+            color: var(--gold);
+            padding: 14px 20px;
+            text-align: left;
+            font-weight: 600;
+            font-size: .8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--card-border)
+        }
+
+        .info-table td {
+            padding: 12px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04)
+        }
+
+        .info-table tr:hover td {
+            background: rgba(255, 255, 255, 0.02)
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(201, 168, 76, 0.08), rgba(201, 168, 76, 0.02));
+            border: 1px solid rgba(201, 168, 76, 0.25);
+            border-radius: 16px;
+            padding: 30px;
+            margin: 30px 0;
+            text-align: center
+        }
+
+        .highlight-box .big {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--gold)
+        }
+
+        .highlight-box p {
+            color: var(--text-muted);
+            font-size: .95rem;
+            margin-top: 8px
+        }
+
+        .gap-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 24px;
+            position: relative;
+            overflow: hidden
+        }
+
+        .gap-card.critical {
+            border: 1px solid rgba(248, 113, 113, 0.2)
+        }
+
+        .gap-card.critical::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--red)
+        }
+
+        .gap-card.high {
+            border: 1px solid rgba(251, 191, 36, 0.2)
+        }
+
+        .gap-card.high::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--yellow)
+        }
+
+        .gap-tag {
+            font-size: .65rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 6px
+        }
+
+        .gap-tag.critical {
+            color: var(--red)
+        }
+
+        .gap-tag.high {
+            color: var(--yellow)
+        }
+
+        .gap-card h4 {
+            font-size: .92rem;
+            font-weight: 600;
+            margin-bottom: 6px
+        }
+
+        .gap-card p {
+            color: var(--text-muted);
+            font-size: .82rem
+        }
+
+        .portal-arch {
+            background: linear-gradient(135deg, rgba(200, 146, 58, 0.05), rgba(0, 0, 0, 0.01));
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px 0
+        }
+
+        .portal-row {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-bottom: 16px
+        }
+
+        .portal-box {
+            padding: 14px 20px;
+            border-radius: 12px;
+            font-size: .82rem;
+            font-weight: 500;
+            text-align: center;
+            min-width: 130px
+        }
+
+        .portal-box.auth {
+            background: rgba(201, 168, 76, 0.12);
+            border: 1px solid rgba(201, 168, 76, 0.3);
+            color: var(--gold)
+        }
+
+        .portal-box.app {
+            background: rgba(96, 165, 250, 0.12);
+            border: 1px solid rgba(96, 165, 250, 0.3);
+            color: var(--blue)
+        }
+
+        .portal-box.report {
+            background: rgba(52, 211, 153, 0.12);
+            border: 1px solid rgba(52, 211, 153, 0.3);
+            color: var(--green)
+        }
+
+        .portal-box.admin {
+            background: rgba(167, 139, 250, 0.12);
+            border: 1px solid rgba(167, 139, 250, 0.3);
+            color: var(--purple)
+        }
+
+        .portal-box.future {
+            background: rgba(34, 211, 238, 0.12);
+            border: 1px solid rgba(34, 211, 238, 0.3);
+            color: var(--cyan)
+        }
+
+        .portal-label {
+            text-align: center;
+            font-size: .72rem;
+            color: var(--text-muted);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin: 14px 0 8px
+        }
+
+        .portal-arrow {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            margin: 10px 0
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin: 30px 0
+        }
+
+        .impact-box {
+            border-radius: 16px;
+            padding: 28px
+        }
+
+        .impact-box.change {
+            background: rgba(248, 113, 113, 0.06);
+            border: 1px solid rgba(248, 113, 113, 0.2)
+        }
+
+        .impact-box.nochange {
+            background: rgba(52, 211, 153, 0.06);
+            border: 1px solid rgba(52, 211, 153, 0.2)
+        }
+
+        .impact-box h4 {
+            font-size: .95rem;
+            font-weight: 600;
+            margin-bottom: 12px
+        }
+
+        .impact-box ul {
+            list-style: none
+        }
+
+        .impact-box li {
+            font-size: .85rem;
+            padding: 5px 0;
+            padding-left: 18px;
+            position: relative;
+            color: var(--text-muted)
+        }
+
+        .impact-box li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--gold)
+        }
+
+        .role-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin: 30px 0
+        }
+
+        .role-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 14px;
+            padding: 20px;
+            text-align: center
+        }
+
+        .role-card .r-icon {
+            font-size: 1.8rem;
+            margin-bottom: 8px
+        }
+
+        .role-card h4 {
+            font-size: .85rem;
+            font-weight: 600;
+            margin-bottom: 4px
+        }
+
+        .role-card p {
+            font-size: .75rem;
+            color: var(--text-muted)
+        }
+
+        .suggest-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 18px;
+            margin: 30px 0
+        }
+
+        .suggest-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            transition: transform .3s
+        }
+
+        .suggest-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--gold)
+        }
+
+        .suggest-card .s-icon {
+            font-size: 2rem;
+            margin-bottom: 10px
+        }
+
+        .suggest-card h4 {
+            font-size: .88rem;
+            font-weight: 600;
+            margin-bottom: 6px
+        }
+
+        .suggest-card p {
+            color: var(--text-muted);
+            font-size: .78rem
+        }
+
+        .timeline-visual {
+            position: relative;
+            padding-left: 40px;
+            margin: 30px 0
+        }
+
+        .timeline-visual::before {
+            content: '';
+            position: absolute;
+            left: 16px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--gold), var(--accent), transparent)
+        }
+
+        .tl-item {
+            position: relative;
+            margin-bottom: 32px;
+            padding: 24px 28px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 14px
+        }
+
+        .tl-item::before {
+            content: '';
+            position: absolute;
+            left: -33px;
+            top: 28px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--gold);
+            border: 3px solid var(--primary)
+        }
+
+        .tl-phase {
+            color: var(--gold);
+            font-size: .72rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 6px
+        }
+
+        .tl-item h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 10px
+        }
+
+        .tl-item ul {
+            list-style: none;
+            color: var(--text-muted);
+            font-size: .85rem
+        }
+
+        .tl-item ul li {
+            padding: 3px 0;
+            padding-left: 18px;
+            position: relative
+        }
+
+        .tl-item ul li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--gold)
+        }
+
+        .ctx-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0 30px;
+            font-size: .88rem
+        }
+
+        .ctx-table td {
+            padding: 14px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            vertical-align: top
+        }
+
+        .ctx-table td:first-child {
+            width: 160px;
+            font-weight: 600;
+            white-space: nowrap
+        }
+
+        .ctx-table tr:hover td {
+            background: rgba(255, 255, 255, 0.02)
+        }
+
+        .ctx-table .ctx-red {
+            color: var(--red)
+        }
+
+        .ctx-table .ctx-green {
+            color: var(--green)
+        }
+
+        .ctx-table .ctx-blue {
+            color: var(--blue)
+        }
+
+        .ctx-table .ctx-gold {
+            color: var(--gold)
+        }
+
+        .feature-list {
+            list-style: none;
+            margin: 20px 0
+        }
+
+        .feature-list li {
+            padding: 8px 0;
+            font-size: .9rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px
+        }
+
+        .feature-list li .f-icon {
+            font-size: 1.1rem;
+            flex-shrink: 0
+        }
+
+        .feature-list li .f-text {
+            color: var(--text-muted)
+        }
+
+        .feature-list li strong {
+            color: var(--text)
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 80px 40px;
+            background: linear-gradient(135deg, #6E4C3F, #4a3028)
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 16px;
+            color: #F8F4E9
+        }
+
+        .cta-section p {
+            color: #B7A997;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto
+        }
+
+        .cta-stats {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap
+        }
+
+        .cta-stat {
+            text-align: center
+        }
+
+        .cta-stat .val {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #DEAA7C
+        }
+
+        .cta-stat .lbl {
+            font-size: .75rem;
+            color: #B7A997;
+            text-transform: uppercase;
+            letter-spacing: 1px
+        }
+
+        .gantt-chart {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 24px 15px;
+            margin: 30px 0;
+            overflow: visible;
+        }
+
+        .gantt-grid {
+            display: grid;
+            grid-template-columns: 180px repeat(40, 1fr);
+            gap: 0;
+            width: 100%;
+        }
+
+        .gantt-month {
+            grid-column: span 4;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: .7rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--card-border)
+        }
+
+        .gantt-label {
+            display: flex;
+            align-items: center;
+            font-size: .8rem;
+            font-weight: 600;
+            color: var(--text);
+            padding: 14px 0 14px 10px;
+            border-bottom: 1px dashed rgba(110, 76, 63, 0.15)
+        }
+
+        .gantt-track {
+            grid-column: 2/-1;
+            display: grid;
+            grid-template-columns: repeat(40, 1fr);
+            position: relative;
+            border-bottom: 1px dashed rgba(110, 76, 63, 0.15);
+            padding: 14px 0
+        }
+
+        .gantt-track::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(90deg, transparent, transparent calc(10% - 1px), rgba(110, 76, 63, 0.06) calc(10% - 1px), rgba(110, 76, 63, 0.06) 10%);
+            pointer-events: none;
+            z-index: 0
+        }
+
+        .gantt-bar {
+            min-height: 32px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            padding: 4px 8px;
+            font-size: .72rem;
+            font-weight: 600;
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            white-space: normal;
+            line-height: 1.3;
+            overflow: hidden;
+            z-index: 5;
+            position: relative
+        }
+
+        .bar-dwh {
+            background: linear-gradient(90deg, rgba(222, 170, 124, 0.9), rgba(222, 170, 124, 0.6));
+            border: 1px solid #DEAA7C;
+            color: #fff
+        }
+
+        .bar-gold {
+            background: linear-gradient(90deg, rgba(74, 109, 140, 0.9), rgba(74, 109, 140, 0.6));
+            border: 1px solid #4a6d8c;
+            color: #fff
+        }
+
+        .bar-portal {
+            background: linear-gradient(90deg, rgba(74, 124, 89, 0.9), rgba(74, 124, 89, 0.6));
+            border: 1px solid #4a7c59;
+            color: #fff
+        }
+
+        .bar-erp {
+            background: linear-gradient(90deg, rgba(110, 76, 63, 0.9), rgba(110, 76, 63, 0.6));
+            border: 1px solid #6E4C3F;
+            color: #fff
+        }
+
+        .bar-parallel {
+            background: linear-gradient(90deg, rgba(183, 169, 151, 0.9), rgba(183, 169, 151, 0.6));
+            border: 1px solid #B7A997;
+            color: #fff
+        }
+
+        /* Architecture specific */
+        .arch-diagram {
+            background: linear-gradient(135deg, rgba(110, 76, 63, 0.06), rgba(248, 244, 233, 0.8));
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px 0
+        }
+
+        .arch-row {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 20px
+        }
+
+        .arch-box {
+            padding: 12px 16px;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-align: center;
+            min-width: 110px
+        }
+
+        .arch-source {
+            background: rgba(74, 109, 140, 0.1);
+            border: 1px solid rgba(74, 109, 140, 0.3);
+            color: var(--blue)
+        }
+
+        .arch-etl {
+            background: rgba(200, 146, 58, 0.1);
+            border: 1px solid rgba(200, 146, 58, 0.3);
+            color: var(--yellow)
+        }
+
+        .arch-dwh {
+            background: rgba(74, 124, 89, 0.1);
+            border: 1px solid rgba(74, 124, 89, 0.3);
+            color: var(--green)
+        }
+
+        .arch-bi {
+            background: rgba(222, 170, 124, 0.1);
+            border: 1px solid rgba(222, 170, 124, 0.3);
+            color: var(--gold)
+        }
+
+        .arch-arrow {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            margin: 8px 0
+        }
+
+        .arch-label {
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--accent);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            font-weight: 700
+        }
+
+        .arch-badge {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 10px
+        }
+
+        .arch-badge span {
+            font-size: 0.75rem;
+            padding: 6px 14px;
+            border-radius: 8px;
+            background: rgba(74, 124, 89, 0.08);
+            color: var(--green);
+            border: 1px solid rgba(74, 124, 89, 0.2)
+        }
+
+        @media print {
+            :root {
+                --primary: #fff;
+                --secondary: #f8f8f8;
+                --accent: #f0f0f0;
+                --gold: #a07e2e;
+                --text: #1a1a1a;
+                --text-muted: #555;
+                --card-bg: #fff;
+                --card-border: #ddd;
+                --green: #16a34a;
+                --red: #dc2626;
+                --yellow: #b45309;
+                --blue: #1a56db
+            }
+
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important
+            }
+
+            @page {
+                margin: 15mm 12mm;
+                size: A4
+            }
+
+            body {
+                background: #fff !important;
+                color: #1a1a1a !important;
+                font-size: 11pt
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 40px 30px;
+                background: #fff !important;
+                page-break-after: always
+            }
+
+            .hero::before,
+            .hero::after {
+                display: none
+            }
+
+            section {
+                padding: 30px 0 !important;
+                max-width: 100% !important
+            }
+
+            .card,
+            .project-card,
+            .gap-card,
+            .suggest-card,
+            .role-card,
+            .impact-box,
+            .portal-arch,
+            .highlight-box,
+            .tl-item {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+                background: #fff !important;
+                border-color: #ddd !important
+            }
+
+            .grid-3,
+            .grid-2 {
+                grid-template-columns: 1fr 1fr !important
+            }
+        }
+        .toc-section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 40px 40px;
+        }
+
+        .toc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 14px;
+            margin-top: 30px;
+        }
+
+        .toc-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 20px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text);
+            font-size: .88rem;
+            font-weight: 500;
+            transition: all .25s;
+            cursor: pointer;
+        }
+
+        .toc-item:hover {
+            border-color: var(--gold);
+            background: rgba(222, 170, 124, 0.08);
+            transform: translateY(-2px);
+            color: var(--accent);
+        }
+
+        .toc-item .toc-num {
+            font-size: .7rem;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 1px;
+            min-width: 24px;
+        }
+
+        .toc-item .toc-icon {
+            font-size: 1.2rem;
+        }
+        /* ========== RESPONSIVE MOBILE ========== */
+        @media (max-width: 768px) {
+            body { padding: 10px; }
+            .hero { padding: 50px 20px 30px; }
+            .hero h1 { font-size: 2.2rem; }
+            
+            .hero-stats, .cta-stats { 
+                flex-direction: row; 
+                flex-wrap: wrap; 
+                gap: 12px; 
+                justify-content: center; 
+                align-items: stretch;
+            }
+            
+            .hero-stat, .cta-stat { 
+                flex: 1 1 40%;
+                padding: 15px 10px; 
+                border-right: none; 
+                border: 1px solid rgba(255,255,255,0.05);
+                border-radius: 12px;
+                background: rgba(0,0,0,0.02);
+            }
+            .cta-stat { background: rgba(255,255,255,0.03); }
+            
+            .hero-stat .num, .cta-stat .val { font-size: 2rem; margin-bottom: 4px; }
+            .hero-stat .lbl, .cta-stat .lbl { font-size: 0.7rem; line-height: 1.3; }
+            
+            .cta-section h2 { font-size: 1.8rem; }
+            
+            #overview { display: flex; flex-direction: column; }
+            
+            .toc-container {
+                position: static;
+                width: 100%;
+                margin-bottom: 30px;
+                padding: 15px;
+            }
+            .toc-item { padding: 8px 12px; }
+            
+            .grid-2, .grid-3, .grid-4 {
+                grid-template-columns: 1fr !important;
+                gap: 16px;
+            }
+            
+            section {
+                padding: 25px 15px;
+                border-radius: 12px;
+                margin-bottom: 25px;
+            }
+            .section-label { font-size: .65rem; padding: 4px 10px; }
+            .section-title { font-size: 1.4rem; line-height: 1.4; }
+            
+            .gantt-chart {
+                max-width: 100%;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                padding-bottom: 20px;
+            }
+            .gantt-grid {
+                min-width: 800px;
+            }
+            
+            .arch-diagram .arch-row { flex-wrap: wrap !important; }
+            .arch-diagram .arch-box {
+                min-width: 100% !important;
+                margin-bottom: 10px;
+            }
+            /* Chuyển hướng các mũi tên ➔ (không có class) thành ⬇ trên màn hình nhỏ */
+            .arch-diagram .arch-row > div:not(.arch-box) {
+                transform: rotate(90deg);
+                margin: 5px 0;
+            }
+
+            .info-table th, .info-table td {
+                padding: 10px;
+                font-size: 0.8rem;
+            }
+            
+            .highlight-box { padding: 15px; }
+            .feature-list { padding-left: 0; }
+        }
+        </style>
+</head>
+
+<body>
+
+    <div class="hero">
+        <div class="hero-badge">IT Department • Confidential</div>
+        <h1>IT Roadmap <span>2026</span></h1>
+        <p>Chiến lược chuyển đổi số toàn diện cho Tierra Diamond — Từ Data Warehouse đến Portal, xây dựng nền tảng công
+            nghệ vững chắc cho tăng trưởng bền vững.</p>
+        <div class="hero-stats">
+            <div class="hero-stat">
+                <div class="num">6</div>
+                <div class="lbl">Dự án</div>
+            </div>
+            <div class="hero-stat">
+                <div class="num">6</div>
+                <div class="lbl">Core Projects</div>
+            </div>
+        </div>
+        <div class="hero-meta">
+            <span>🏢 Tierra Diamond</span>
+            <span>📄 v1.1 — 03/2026</span>
+        </div>
+    </div>
+
+    <!-- ========== TỔNG QUAN + MỤC LỤC ========== -->
+    <section id="overview">
+        <div class="section-label">Tổng Quan</div>
+        <h2 class="section-title">6 Dự Án Trọng Tâm — IT Roadmap 2026</h2>
+
+        <p class="section-desc">Tập trung toàn bộ nguồn lực vào 6 dự án mang tính nền tảng. Click vào mục lục để nhảy đến từng phần.</p>
+
+        <!-- MỤC LỤC PHÂN NHÓM -->
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin:30px 0 40px;">
+
+            <!-- Nhóm 1: Lộ trình -->
+            <div>
+                <div style="font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);margin-bottom:10px;padding-bottom:8px;border-bottom:2px solid var(--card-border);">📋 Lộ Trình</div>
+                <div style="display:flex;flex-direction:column;gap:8px;">
+                    <a class="toc-item" href="#gantt" style="padding:12px 16px;">
+                        <span class="toc-icon">📅</span><span>Gantt Chart 2026</span>
+                    </a>
+                    <a class="toc-item" href="#timeline" style="padding:12px 16px;">
+                        <span class="toc-icon">⏱️</span><span>Lộ Trình Chi Tiết</span>
+                    </a>
+                    <a class="toc-item" href="#budget" style="padding:12px 16px;">
+                        <span class="toc-icon">💰</span><span>Ngân Sách & Hạ Tầng</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Nhóm 2: Core Projects -->
+            <div>
+                <div style="font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);margin-bottom:10px;padding-bottom:8px;border-bottom:2px solid var(--gold);">🚀 6 Core Projects</div>
+                <div style="display:flex;flex-direction:column;gap:8px;">
+                    <a class="toc-item" href="#dwh" style="padding:12px 16px;">
+                        <span class="toc-icon">🏗️</span><span>Data Warehouse</span>
+                    </a>
+                    <a class="toc-item" href="#gold" style="padding:12px 16px;">
+                        <span class="toc-icon">📊</span><span>Gold Prediction</span>
+                    </a>
+                    <a class="toc-item" href="#portal" style="padding:12px 16px;">
+                        <span class="toc-icon">🌐</span><span>Tierra Portal</span>
+                    </a>
+                    <a class="toc-item" href="#lead-scoring" style="padding:12px 16px;">
+                        <span class="toc-icon">🎯</span><span>Lead Scoring</span>
+                    </a>
+                    <a class="toc-item" href="#erp" style="padding:12px 16px;">
+                        <span class="toc-icon">🔄</span><span>ERP Replacement</span>
+                    </a>
+                    <a class="toc-item" href="#nd13-compliance" style="padding:12px 16px;">
+                        <span class="toc-icon">⚖️</span><span>Hợp Quy NĐ 13</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Nhóm 3: Chiến lược -->
+            <div>
+                <div style="font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text-muted);margin-bottom:10px;padding-bottom:8px;border-bottom:2px solid var(--card-border);">🛡️ Chiến Lược</div>
+                <div style="display:flex;flex-direction:column;gap:8px;">
+                    <a class="toc-item" href="#satellite" style="padding:12px 16px;">
+                        <span class="toc-icon">💡</span><span>Dự Án Vệ Tinh</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <div class="divider"></div>
+    <!-- ========== LỘ TRÌNH TỔNG THỂ ========== -->
+    <section id="gantt">
+        <div class="section-label">Overview</div>
+        <h2 class="section-title">Lộ Trình Triển Khai 2026 (Gantt Chart)</h2>
+        <p class="section-desc">Góc nhìn tổng quát về tiến độ song song của 6 nền tảng cốt lõi trong năm 2026.</p>
+
+        <div class="gantt-chart">
+            <div class="gantt-grid">
+                <!-- Header -->
+                <div
+                    style="color:var(--text-muted);font-size:.78rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:10px 0 10px 10px;border-bottom:1px solid var(--card-border);display:flex;align-items:center;">
+                    Dự án</div>
+                <div class="gantt-month">Mar</div>
+                <div class="gantt-month">Apr</div>
+                <div class="gantt-month">May</div>
+                <div class="gantt-month">Jun</div>
+                <div class="gantt-month">Jul</div>
+                <div class="gantt-month">Aug</div>
+                <div class="gantt-month">Sep</div>
+                <div class="gantt-month">Oct</div>
+                <div class="gantt-month">Nov</div>
+                <div class="gantt-month">Dec</div>
+
+                <!-- Row 1 -->
+                <div class="gantt-label">🏗️ Data Warehouse</div>
+                <div class="gantt-track">
+                    <div class="gantt-bar bar-dwh" style="grid-column: 5 / span 8">DWH & Dashboards (2 Tháng)</div>
+                </div>
+
+                <!-- Row 2 -->
+                <div class="gantt-label">📊 Gold Prediction</div>
+                <div class="gantt-track">
+                    <div class="gantt-bar bar-gold" style="grid-column: 13 / span 3">Model Build (3 Tuần)</div>
+                </div>
+
+                <!-- Row 3 -->
+                <div class="gantt-label">🌐 Tierra Portal</div>
+                <div class="gantt-track">
+                    <div class="gantt-bar bar-portal" style="grid-column: 13 / span 28">MVP (1 Tuần) + Phát triển liên
+                        tục</div>
+                </div>
+
+                <!-- Row 4 -->
+                <div class="gantt-label">🔄 ERP Replacement</div>
+                <div class="gantt-track">
+                    <div class="gantt-bar bar-erp" style="grid-column: 1 / span 40">Vendor Evaluate &amp; Pilot</div>
+                </div>
+
+                <!-- Row 5 -->
+                <div class="gantt-label">🎯 Lead Scoring</div>
+                <div class="gantt-track">
+                    <div class="gantt-bar" style="grid-column: 17 / span 24; background: linear-gradient(90deg, rgba(200,146,58,0.9), rgba(200,146,58,0.55)); border: 1px solid #c8923a; color:#fff;">Scoring Model + Portal Integration</div>
+                </div>
+
+                <!-- Row 6 -->
+                <div class="gantt-label">⚖️ Hợp Quy NĐ 13</div>
+                <div class="gantt-track">
+                    <div class="gantt-bar" style="grid-column: 5 / span 12; background: linear-gradient(90deg, #3b82f6, #60a5fa); border: 1px solid #2563eb; color:#fff;">Data Catalog &amp; Masking (3 Tháng)</div>
+                </div>
+
+                <!-- Row 7 -->
+                <div class="gantt-label" style="font-size:0.8rem">💡 Các Dự Án Vệ Tinh</div>
+                <div class="gantt-track">
+                    <div class="gantt-bar bar-parallel" style="grid-column: 13 / span 28">Auto Reply FB, Sale Follow, NCC Cross Sell...</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="divider"></div>
+
+    <!-- ========== TIMELINE CHI TIẾT ========== -->
+    <section id="timeline">
+        <div class="section-label">Timeline</div>
+        <h2 class="section-title">Lộ Trình Triển Khai Chi Tiết</h2>
+        <p class="section-desc">Phân pha từ tháng 4/2026, mỗi dự án core có milestone rõ ràng.</p>
+
+        <button onclick="toggleTimeline()" id="timeline-btn" style="display:flex;align-items:center;gap:10px;margin:20px 0;padding:12px 24px;background:var(--card-bg);border:1.5px solid var(--gold);border-radius:10px;cursor:pointer;font-size:.9rem;font-weight:600;color:var(--accent);transition:all .25s;font-family:inherit;">
+            <span id="timeline-btn-icon">▶</span>
+            <span id="timeline-btn-text">Xem Chi Tiết Các Phase</span>
+        </button>
+
+        <div id="timeline-content" style="display:none;">
+            <div class="timeline-visual">
+                <div class="tl-item">
+                    <div class="tl-phase">Phase 1: Mar – May (3 Tháng)</div>
+                    <h4>🚀 Khởi Động ERP Replacement & Xây Dựng DWH</h4>
+                    <ul>
+                        <li>ERP Replacement: Khởi động quá trình thu thập yêu cầu từ tháng 3</li>
+                        <li>Xây dựng Data Warehouse với tiêu chuẩn <b>Bảo mật toàn diện (Data Encryption, Cloud Security, RBAC)</b></li>
+                        <li>Tích hợp Database tự động từ ERP API, CRM, Ads, Website</li>
+                        <li>Lên Power BI Dashboards cực tốc cho các phòng ban điều hành</li>
+                    </ul>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-phase">Phase 2: Jun – Jul</div>
+                    <h4>🌐 Triển khai Portal MVP, Vệ Tinh & AI Model</h4>
+                    <ul>
+                        <li><strong>Portal MVP:</strong> Khởi động tháng 6, lên sóng trong 1 tuần (SSO auth, RBAC 6 roles)</li>
+                        <li><strong>Gold Prediction:</strong> Xây dựng và triển khai Model hoàn thiện trong 3 tuần (Tháng 6)</li>
+                        <li><strong>Auto Reply FB:</strong> Đưa vào sử dụng ngay cuối tháng 6</li>
+                    </ul>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-phase">Phase 3: Jul – Aug</div>
+                    <h4>📱 Mở Rộng Mini App & Khởi Động Lead Scoring</h4>
+                    <ul>
+                        <li>Khởi động code song song các Mini App nghiệp vụ chuyên sâu.</li>
+                        <li>Phân quyền báo cáo nâng cao (Quick Report) cho C-level và Cửa hàng trưởng.</li>
+                        <li><strong>Lead Scoring:</strong> Xây dựng Scoring Engine và thiết lập thang điểm dựa trên hành vi CRM.</li>
+                    </ul>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-phase">Phase 4: Aug – Dec</div>
+                    <h4>🔄 Mở Rộng Hệ Sinh Thái & ERP Replacement</h4>
+                    <ul>
+                        <li>📱 Cắm liên tục các Mini App vào Portal (Sale Follow, NCC Cross-sell, NPS/CSAT)</li>
+                        <li>ERP Replacement: Tiến hành Pilot và chốt Migration Plan cho 2027</li>
+                        <li><strong>Lead Scoring:</strong> Vận hành thực tế — theo dõi tỷ lệ follow-up và chuyển đổi theo nhóm điểm, tinh chỉnh Scoring Rules liên tục.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <script>
+        function toggleTimeline() {
+            var c = document.getElementById('timeline-content');
+            var icon = document.getElementById('timeline-btn-icon');
+            var text = document.getElementById('timeline-btn-text');
+            if (c.style.display === 'none') {
+                c.style.display = 'block'; icon.textContent = '▼'; text.textContent = 'Ẩn Chi Tiết';
+            } else {
+                c.style.display = 'none'; icon.textContent = '▶'; text.textContent = 'Xem Chi Tiết Các Phase';
+            }
+        }
+        </script>
+    </section>
+    <div class="divider"></div>
+
+    <!-- ========== DWH CHI TIẾT ========== -->
+    <!-- ========== DWH: TRANG 1 ========== -->
+    <section id="dwh">
+        <div class="section-label">Dự án 1 — Core (Trang 1/4)</div>
+        <h2 class="section-title">🏗️ DWH — Thực Trạng & Tầm Nhìn Tương Lai</h2>
+        <p class="section-desc"><strong>Tập trung dữ liệu từ ERP, CRM, Ads, Website vào 1 kho duy nhất — nền tảng cho mọi dự án.</strong><br>Hiện tại Tierra <strong>CHƯA CÓ</strong> một trung tâm dữ liệu độc lập. Việc vận hành không có Data Warehouse đang tạo ra các nút thắt lớn, đồng thời kìm hãm hoàn toàn khả năng ứng dụng AI và chuyển đổi số.</p>
+        
+        <h3 style="font-size:1rem;color:var(--red);margin-bottom:12px;margin-top:20px;">❌ THỰC TRẠNG: RỦI RO KHI KHÔNG CÓ DWH</h3>
+        <table class="ctx-table">
+            <tr>
+                <td class="ctx-red" style="width: 210px;">🔴 Kiến trúc chắp vá</td>
+                <td>
+                    • <strong>Marketing/CRM:</strong> Apps Script → BigQuery (Hay lỗi timeout, tốn phí).<br>
+                    • <strong>ERP:</strong> Lấy dữ liệu ODBC về máy tính cá nhân → Đẩy lên Power BI.
+                </td>
+            </tr>
+            <tr>
+                <td class="ctx-red">🔴 Phân mảnh Dữ liệu (Data Silos)</td>
+                <td>
+                    • Thông tin bị cô lập tại từng hệ thống riêng biệt, không có cái nhìn toàn cảnh 360 độ.<br>
+                    • Thiếu tính đồng nhất (Data Consistency), dẫn đến sai lệch số liệu giữa các phòng ban.
+                </td>
+            </tr>
+            <tr>
+                <td class="ctx-red">🔴 Thiếu năng lực mở rộng (Scalability)</td>
+                <td>
+                    • Nền tảng hiện hành không thể chịu tải định dạng dữ liệu lớn (Big Data) ở cấp độ doanh nghiệp.<br>
+                    • Rào cản tuyệt đối trong việc tích hợp các thuật toán Học máy (Machine Learning) và AI.
+                </td>
+            </tr>
+        </table>
+
+        <h3 style="font-size:1rem;color:var(--green);margin-bottom:12px;margin-top:30px;">✅ GIẢI PHÁP: GIÁ TRỊ CỐT LÕI CỦA DWH</h3>
+        <table class="ctx-table">
+            <tr>
+                <td class="ctx-green" style="width: 200px;">🟢 Nguồn sự thật duy nhất</td>
+                <td>
+                    • Hợp nhất & tự động chuẩn hóa dữ liệu đa nền tảng 24/7.<br>
+                    • Cung cấp Dashboard Real-time chính xác tuyệt đối trên Power BI.
+                </td>
+            </tr>
+            <tr>
+                <td class="ctx-green">🟢 Vùng đệm kỹ thuật</td>
+                <td>
+                    • Hoạt động độc lập bằng kiến trúc Agnostic.<br>
+                    • Đảm bảo báo cáo <strong>không gián đoạn</strong> khi thay thế ERP (2027).
+                </td>
+            </tr>
+            <tr>
+                <td class="ctx-green">🟢 Nền tảng phát triển AI</td>
+                <td>
+                    • Cung cấp nguyên liệu sạch (Dataset) quy mô lớn.<br>
+                    • Điều kiện bắt buộc để vận hành: Gold Prediction, Auto-Reply, Mini Apps.
+                </td>
+            </tr>
+        </table>
+    </section>
+    <div class="divider"></div>
+
+    <!-- ========== DWH: TRANG 2 ========== -->
+    <section>
+        <div class="section-label">Dự án 1 — Core (Trang 2/4)</div>
+        <h2 class="section-title">🏗️ Data Warehouse — Cấu trúc Before & After</h2>
+        <p class="section-desc">Thay vì 2 luồng cắt đứt mạch lạc làm gãy phễu phân tích, chúng ta sẽ hợp nhất 100% data
+            về kho PostgreSQL nội bộ via Apache Airflow.</p>
+
+        <!-- AS-IS Diagram -->
+        <div class="arch-diagram"
+            style="padding:20px; border-color:rgba(248,113,113,0.3); background:rgba(248,113,113,0.02); margin-top:0;">
+            <div class="arch-label" style="color:var(--red);">🔴 Kiến trúc hiện tại (BEFORE)</div>
+            <div style="display:flex; gap:10px; align-items:stretch; justify-content:center; flex-wrap:wrap;">
+                <div
+                    style="flex:1; min-width:300px; padding:16px; border:1px solid rgba(96,165,250,0.15); border-radius:14px; background:rgba(96,165,250,0.03); display:flex; flex-direction:column;">
+                    <div
+                        style="text-align:center; font-size:0.7rem; color:var(--blue); letter-spacing:1px; text-transform:uppercase; margin-bottom:12px; font-weight:600;">
+                        Luồng 1 (CRM/MKT)</div>
+                    <div class="arch-row">
+                        <div class="arch-box arch-source" style="padding:8px;font-size:0.75rem;">AntBuddy CRM</div>
+                        <div class="arch-box arch-source" style="padding:8px;font-size:0.75rem;">Meta / Google Ads</div>
+                    </div>
+                    <div class="arch-arrow" style="font-size:1rem;margin:4px 0;">▼</div>
+                    <div class="arch-row">
+                        <div class="arch-box arch-etl" style="padding:8px;font-size:0.75rem;min-width:180px;">⚠️ Apps
+                            Script (Lỗi/Timeout)</div>
+                    </div>
+                    <div class="arch-arrow" style="font-size:1rem;margin:4px 0;">▼</div>
+                    <div class="arch-row">
+                        <div class="arch-box"
+                            style="padding:8px;font-size:0.75rem;color:var(--red);border:1px solid rgba(248,113,113,0.3);background:rgba(248,113,113,0.08);min-width:180px;">
+                            ☁️ BigQuery (Trúng phí cao)</div>
+                    </div>
+                </div>
+                <div
+                    style="display:flex; flex-direction:column; align-items:center; justify-content:center; padding:0 8px;">
+                    <div
+                        style="padding:6px 10px; background:rgba(248,113,113,0.08); border:1px solid rgba(248,113,113,0.25); border-radius:10px; text-align:center;">
+                        <span style="font-size:0.9rem;">❌</span>
+                        <div style="font-size:0.6rem; color:var(--red); font-weight:600; text-transform:uppercase;">Gãy
+                            Kết Nối</div>
+                    </div>
+                </div>
+                <div
+                    style="flex:0 0 200px; padding:16px; border:1px solid rgba(248,113,113,0.15); border-radius:14px; background:rgba(248,113,113,0.03); display:flex; flex-direction:column;">
+                    <div
+                        style="text-align:center; font-size:0.7rem; color:var(--red); letter-spacing:1px; text-transform:uppercase; margin-bottom:12px; font-weight:600;">
+                        Luồng 2 (ERP)</div>
+                    <div
+                        style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center;">
+                        <div class="arch-box arch-source" style="padding:8px;font-size:0.75rem;width:100%;">XMAN ERP
+                        </div>
+                        <div class="arch-arrow" style="font-size:1rem;margin:4px 0;">▼</div>
+                        <div class="arch-box arch-etl"
+                            style="padding:8px;font-size:0.75rem;width:100%;color:var(--red);background:rgba(248,113,113,0.08);">
+                            ODBC (Lỗi đồng bộ)</div>
+                    </div>
+                </div>
+            </div>
+            <div class="arch-arrow" style="font-size:1rem;margin:8px 0;">▼</div>
+            <div class="arch-row" style="margin-bottom:0;">
+                <div class="arch-box arch-bi" style="padding:10px 20px;font-size:0.8rem;">📊 Power BI Dashboards (Dữ
+                    liệu chắp vá, rời rạc)</div>
+            </div>
+        </div>
+
+        <!-- TO-BE Diagram -->
+        <div class="arch-diagram"
+            style="padding:20px; border-color:rgba(74,124,89,0.3); background:rgba(74,124,89,0.04); margin-bottom:0;">
+            <div class="arch-label" style="color:var(--green);">✅ Kiến trúc đề xuất (AFTER)</div>
+            <div class="arch-row" style="gap:10px;">
+                <div class="arch-box arch-source" style="padding:8px 12px;font-size:0.75rem;min-width:auto;">AntBuddy
+                    CRM</div>
+                <div class="arch-box arch-source" style="padding:8px 12px;font-size:0.75rem;min-width:auto;">XMAN ERP
+                </div>
+                <div class="arch-box arch-source" style="padding:8px 12px;font-size:0.75rem;min-width:auto;">Meta API
+                </div>
+                <div class="arch-box arch-source" style="padding:8px 12px;font-size:0.75rem;min-width:auto;">Google /
+                    TikTok Ads</div>
+            </div>
+            <div class="arch-arrow" style="font-size:1rem;margin:6px 0;">▼</div>
+            <div class="arch-row">
+                <div class="arch-box arch-etl" style="padding:10px 20px;font-size:0.8rem;">⚙️ Apache Airflow — Scheduler
+                    tự động, Retry, Alert khẩn cấp</div>
+            </div>
+            <div class="arch-arrow" style="font-size:1rem;margin:6px 0;">▼</div>
+            <div class="arch-row" style="margin-bottom:10px;">
+                <div class="arch-box arch-dwh" style="padding:14px 20px; min-width:300px;">
+                    <span style="font-size:1rem;font-weight:700;">🐘 PostgreSQL Data Warehouse (Tự chủ 100%)</span><br>
+                    <span style="font-size:0.75rem; opacity:0.8;">Bronze (Thô) → Silver (Sạch) → Gold (Star Schema
+                        Analytics)</span>
+                </div>
+            </div>
+            <div class="arch-row" style="margin-bottom:0;">
+                <div class="arch-box arch-bi"
+                    style="padding:10px 20px;font-size:0.8rem;background:var(--card-bg);color:var(--text);border-color:var(--card-border);">
+                    📊 Nền tảng hợp nhất: Power BI, ML Models, Mini App Portal</div>
+            </div>
+        </div>
+    </section>
+    <div class="divider"></div>
+
+    <!-- ========== DWH: TRANG 3 ========== -->
+    <section>
+        <div class="section-label">Dự án 1 — Core (Trang 3/4)</div>
+        <h2 class="section-title">🏗️ Data Warehouse — Medallion Modeling & Sources</h2>
+        <p class="section-desc">Toàn bộ 9 luồng Data sẽ được kéo tự động và xử lý làm sạch, loại trùng lặp trước khi vào
+            bảng Dashboard.</p>
+
+        <div class="grid-3" style="margin-bottom:30px;">
+            <div class="card" style="border-top:3px solid #b45309;padding:24px;">
+                <h3 style="color:#fbbf24;">🥉 Bronze Layer</h3>
+                <ul>
+                    <li>Raw data "as-is" trực tiếp từ API</li>
+                    <li>Data backup vĩnh viễn, Audit trail</li>
+                    <li>Dạng Append-only</li>
+                </ul>
+            </div>
+            <div class="card" style="border-top:3px solid #9ca3af;padding:24px;">
+                <h3 style="color:#9ca3af;">🥈 Silver Layer</h3>
+                <ul>
+                    <li>Chuẩn hóa số liệu, loại trùng lặp</li>
+                    <li>Mapping KH CRM ↔ ERP tay trong tay</li>
+                    <li>Tạo Schema linh hoạt, ERP-Agnostic</li>
+                </ul>
+            </div>
+            <div class="card" style="border-top:3px solid #a07e2e;padding:24px;">
+                <h3 style="color:#fbbf24;">🥇 Gold Layer</h3>
+                <ul>
+                    <li>Cấu trúc Star-Schema cho Power BI</li>
+                    <li>Tính sẵn CVR, LTV, ROAS tự động</li>
+                    <li>Trở thành API Query cho AI & Mini Apps</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3 style="font-size:1rem;margin-bottom:16px;color:var(--gold)">Bảng Kết Nối Nguồn Dữ Liệu</h3>
+        <table class="info-table">
+            <tr>
+                <th>Source</th>
+                <th>API/Method</th>
+                <th>Mục đích</th>
+                <th>Tần suất</th>
+            </tr>
+            <tr>
+                <td>ERP (XMSC)</td>
+                <td>Webservice API (9 endpoints)</td>
+                <td>Tồn kho, SX, Sales KH offline</td>
+                <td>Mỗi 30p</td>
+            </tr>
+            <tr>
+                <td>Antbuddy CRM</td>
+                <td>REST API</td>
+                <td>Vòng đời Lead, Chat / Call Log</td>
+                <td>Mỗi 60p</td>
+            </tr>
+            <tr>
+                <td>Facebook/Meta</td>
+                <td>Marketing API / webhook</td>
+                <td>Tương tác, Lead Form, Chi phí Ad</td>
+                <td>Mỗi 60p</td>
+            </tr>
+            <tr>
+                <td>Google / TikTok</td>
+                <td>Marketing API / Ads API</td>
+                <td>Campaign Ads, Hành vi web</td>
+                <td>Hàng ngày</td>
+            </tr>
+            <tr>
+                <td>Zalo ZNS / GA4</td>
+                <td>Graph API</td>
+                <td>Delivery rate tin nhắn & User Session</td>
+                <td>Hàng ngày</td>
+            </tr>
+        </table>
+    </section>
+    <div class="divider"></div>
+
+    <!-- ========== DWH: TRANG 4 ========== -->
+    <section>
+        <div class="section-label">Dự án 1 — Core (Trang 4/4)</div>
+        <h2 class="section-title">🏗️ Data Warehouse — Security & Lộ Trình Triển Khai 2 Tháng</h2>
+        <p class="section-desc">Giao thức bảo mật (Security-First) được đặt lên hàng đầu. Toàn bộ nền tảng sẽ được đóng
+            gói và hoàn thiện <strong>trong vỏn vẹn 2 tháng (Tháng 4-5)</strong> để sớm bàn giao luồng dữ liệu sạch.</p>
+
+        <div class="grid-2">
+            <div class="card" style="border-color:var(--red);">
+                <h3><strong style="color:var(--red)">🔐 Tiêu Chuẩn Bảo Mật Cao Cấp (Security-First)</strong></h3>
+                <ul class="feature-list" style="margin-top:10px;">
+                    <li>
+                        <div class="f-icon">🛡️</div>
+                        <div class="f-text"><strong>Mã hóa an toàn:</strong> Bảo mật tuyệt đối 100% dữ liệu danh tính,
+                            sđt khách hàng và thông tin tài chính cốt lõi.</div>
+                    </li>
+                    <li>
+                        <div class="f-icon">🔐</div>
+                        <div class="f-text"><strong>Ngăn chặn nội bộ:</strong> Quản lý phân quyền khép kín, truy cập báo
+                            cáo theo đúng cấp bậc quản lý (Trust no one).</div>
+                    </li>
+                    <li>
+                        <div class="f-icon">☁️</div>
+                        <div class="f-text"><strong>Máy chủ độc lập:</strong> Lưu trữ trên máy chủ dữ liệu riêng biệt
+                            (Private Cloud), không chia sẻ lẫn lộn với bên ngoài.</div>
+                    </li>
+                    <li>
+                        <div class="f-icon">🚨</div>
+                        <div class="f-text"><strong>Giám sát rủi ro:</strong> Hệ thống tự động theo dõi, phát hiện rò rỉ
+                            hoặc cảnh báo ngay lập tức nếu data bị hụt/truy xuất lạ.</div>
+                    </li>
+                </ul>
+            </div>
+            <div class="card" style="border-color:var(--gold);">
+                <h3><strong style="color:var(--gold)">📅 Lộ trình 2 Tháng (Apr - May)</strong></h3>
+                <ul class="feature-list" style="margin-top:10px;">
+                    <li>
+                        <div class="f-icon">✓</div>
+                        <div class="f-text"><strong>Airflow & DB Init:</strong> Dựng Server bảo mật, Test Ping và Schema
+                            tĩnh.</div>
+                    </li>
+                    <li>
+                        <div class="f-icon">✓</div>
+                        <div class="f-text"><strong>ETL 9 API ERP:</strong> Kéo trọn bộ Dòng đời SP/Tồn Kho thẳng vào
+                            Bronze.</div>
+                    </li>
+                    <li>
+                        <div class="f-icon">✓</div>
+                        <div class="f-text"><strong>CRM & Ads API:</strong> Hợp nhất Meta/Google/GA4/CRM đẩy lên Silver.
+                        </div>
+                    </li>
+                    <li>
+                        <div class="f-icon">✓</div>
+                        <div class="f-text"><strong>Gold Layer & PBI:</strong> Power BI lên sóng Real-time, cắt hẳn thủ
+                            công.</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="highlight-box">
+            <div class="big">Bảo Toàn Hạ Tầng Lõi</div>
+            <p>Về lâu dài khi Tierra tiến hành chuyển đổi ERP hệ thống mới (Migrate 2027), toàn bộ mạch máu báo cáo
+                (Gold & BI) <strong>không bị ảnh hưởng</strong> đo đã được Medallion hóa — giúp cho Tierra ngắt công tắc
+                ERP cũ an toàn không suy suyển.</p>
+        </div>
+    </section>
+    <div class="divider"></div>
+
+    <!-- ========== GOLD PREDICTION CHI TIẾT ========== -->
+    <section id="gold">
+        <div class="section-label">Dự án 2 — Core</div>
+        <h2 class="section-title">📊 Mô Hình Dự Đoán Khối Lượng Vàng</h2>
+        <p class="section-desc">ML model dự đoán khối lượng vàng cần thiết để build 1 món trang sức, dựa trên mã thiết kế + ni tay + chất liệu.</p>
+        <table class="ctx-table">
+            <tr>
+                <td class="ctx-red">🔴 Thực trạng</td>
+                <td>Đối với các sản phẩm ngoài danh sách bảng chuẩn hóa ni tay, NVKD phải tự ước tính trọng lượng vàng
+                    để tính giá và báo giá cho khách. Quy trình này hiện phụ thuộc nhiều vào kinh nghiệm cá nhân, trong
+                    khi đội ngũ sale có tỷ lệ thay đổi nhân sự cao — dẫn đến sự thiếu nhất quán trong cách ước tính giữa
+                    các nhân viên và cửa hàng, làm giảm độ chính xác của báo giá và ảnh hưởng không tốt đến trải nghiệm
+                    khách hàng.</td>
+            </tr>
+            <tr>
+                <td class="ctx-gold">🟡 Thay đổi</td>
+                <td>Xây dựng ML model (Random Forest/XGBoost) dự đoán trọng lượng vàng. Input: mã thiết kế + ni tay +
+                    chất liệu → Output: gram vàng cần + khoảng tin cậy + ảnh bản vẽ. Web interface tra cứu tức thì.</td>
+            </tr>
+            <tr>
+                <td class="ctx-green">🟢 Hiệu quả</td>
+                <td>Giảm hao hụt vàng (xuất đúng lượng cần). Tra cứu 1 giây thay vì hỏi thợ lành nghề. Chuẩn hóa quy
+                    trình báo giá + lập kế hoạch SX. Phát hiện hao hụt bất thường (dự đoán vs thực tế).</td>
+            </tr>
+            <tr>
+                <td class="ctx-blue">💡 Gợi ý thêm</td>
+                <td>• <strong>Mở rộng sang Bông tai, Vòng, Dây chuyền</strong>: Cùng logic, chỉ thay data training<br>•
+                    <strong>Auto cost estimation</strong>: Kết hợp giá vàng thị trường → tự tính giá nguyên liệu ước
+                    tính<br>• <strong>Anomaly report</strong>: Hàng tuần auto so sánh dự đoán vs thực tế → báo cáo hao
+                    hụt cho SX Manager</td>
+            </tr>
+        </table>
+        <div class="grid-2">
+            <div class="card">
+                <h3>📥 Input (nhập vào)</h3>
+                <ul>
+                    <li><strong>prodid</strong> — Mã thiết kế nhẫn (VD: NCH1502)</li>
+                    <li><strong>prodsize</strong> — Ni tay / size nhẫn (VD: 9, 10, 15)</li>
+                    <li><strong>gradeid</strong> — Chất liệu vàng (10K, 14K, 18K)</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>📤 Output (kết quả)</h3>
+                <ul>
+                    <li><strong>gold_weight</strong> — Khối lượng vàng cần (gram)</li>
+                    <li>Khoảng tin cậy (confidence interval)</li>
+                    <li>Ảnh bản vẽ thiết kế tương ứng</li>
+                    <li>Lịch sử các ni tay đã SX trước đó</li>
+                </ul>
+            </div>
+        </div>
+        <div class="grid-3">
+            <div class="card" style="text-align:center">
+                <h3 style="justify-content:center">🎯</h3>
+                <p><strong>Giảm hao hụt</strong><br>Xuất đúng lượng vàng, không thừa</p>
+            </div>
+            <div class="card" style="text-align:center">
+                <h3 style="justify-content:center">⚡</h3>
+                <p><strong>Tra cứu tức thì</strong><br>Nhập mã + ni tay → kết quả 1 giây</p>
+            </div>
+            <div class="card" style="text-align:center">
+                <h3 style="justify-content:center">🔍</h3>
+                <p><strong>Phát hiện bất thường</strong><br>So dự đoán vs thực tế → flag hao hụt</p>
+            </div>
+        </div>
+        <table class="info-table">
+            <tr>
+                <th>Giai đoạn triển khai</th>
+                <th>Tiến độ</th>
+                <th>Mô tả chuyên môn</th>
+            </tr>
+            <tr>
+                <td><strong>Giai đoạn 1:</strong> Thu thập & Tiền xử lý dữ liệu</td>
+                <td>Tuần 1</td>
+                <td>Trích xuất và làm sạch khối lượng lớn dữ liệu lịch sử báo giá/sản xuất từ hệ thống ERP, thiết lập bộ dữ liệu chuẩn mực.</td>
+            </tr>
+            <tr>
+                <td><strong>Giai đoạn 2:</strong> Huấn luyện & Phát triển Web</td>
+                <td>Tuần 2</td>
+                <td>Thiết lập và huấn luyện thuật toán AI, song song xây dựng Giao diện Tra cứu tích hợp trực tiếp với thuật toán lõi.</td>
+            </tr>
+            <tr>
+                <td><strong>Giai đoạn 3:</strong> Nghiệm thu & Triển khai</td>
+                <td>Tuần 3</td>
+                <td>UAT tại các cụm cửa hàng trọng điểm và đưa vào sử dụng thực tế tại bộ phận Sản xuất.</td>
+            </tr>
+        </table>
+    </section>
+    <div class="divider"></div>
+
+    <!-- ========== PORTAL CHI TIẾT ========== -->
+    <section id="portal">
+        <div class="section-label">Dự án 3 — Core</div>
+        <h2 class="section-title">🌐 Tierra Portal & Mini App Sale Report</h2>
+        <p class="section-desc"><strong>Không gian làm việc số (Digital Workspace) tập trung, hợp nhất toàn diện hệ sinh thái công cụ nội bộ.</strong><br>Quy hoạch và đóng gói các phần mềm vận hành, quản lý nghiệp vụ và hệ thống báo cáo thành nền tảng Mini-App thống nhất. Mọi nhân viên thực thi công việc thông qua một cổng truy cập duy nhất (Single Sign-On) với hệ thống phân quyền linh hoạt tương ứng từng chức danh.</p>
+
+
+        <h3 style="font-size:1rem;margin:30px 0 20px;color:var(--gold)">Kiến trúc hệ thống</h3>
+        <div class="portal-arch">
+            <div class="portal-label">Tierra Portal (React / Next.js)</div>
+            <div class="portal-row">
+                <div class="portal-box auth">🔐 SSO Login</div>
+                <div class="portal-box app">📱 Sale Report</div>
+                <div class="portal-box app">📊 Gold Predict</div>
+                <div class="portal-box app">🧮 Price Calculator</div>
+            </div>
+            <div class="portal-row">
+                <div class="portal-box app">🎯 Lead Scoring</div>
+                <div class="portal-box report">📈 Quick Report</div>
+                <div class="portal-box admin">⚙️ Admin Panel</div>
+                <div class="portal-box future">🔔 Notification</div>
+            </div>
+            <div class="portal-arrow">▼</div>
+            <div class="portal-label">Shared Auth + API Gateway</div>
+            <div class="portal-row">
+                <div class="portal-box report" style="min-width:200px">☁️ Data Warehouse (Gold Layer)</div>
+            </div>
+        </div>
+        <h3 style="font-size:1rem;margin:30px 0 20px;color:var(--gold)">Phân quyền theo Role</h3>
+        <div class="role-grid">
+            <div class="role-card">
+                <div class="r-icon">👤</div>
+                <h4>Sale</h4>
+                <p>Sale Report, KPI cá nhân, follow-up lead</p>
+            </div>
+            <div class="role-card">
+                <div class="r-icon">👔</div>
+                <h4>Cửa hàng trưởng</h4>
+                <p>KPI cửa hàng, giám sát team, báo cáo nhanh</p>
+            </div>
+            <div class="role-card">
+                <div class="r-icon">🏭</div>
+                <h4>SX Manager</h4>
+                <p>Gold Prediction, Production dashboard</p>
+            </div>
+            <div class="role-card">
+                <div class="r-icon">📢</div>
+                <h4>Marketing</h4>
+                <p>Campaign reports, ROAS, lead source</p>
+            </div>
+            <div class="role-card">
+                <div class="r-icon">👑</div>
+                <h4>Manager / C-level</h4>
+                <p>Tất cả app + Quick Report tổng quan</p>
+            </div>
+            <div class="role-card">
+                <div class="r-icon">⚙️</div>
+                <h4>Admin</h4>
+                <p>Quản lý user, role, thêm/ẩn app</p>
+            </div>
+        </div>
+        <h3 style="font-size:1rem;margin:30px 0 20px;color:var(--gold)">7 Tính năng chính</h3>
+        <ul class="feature-list">
+            <li><span class="f-icon">🔐</span><span class="f-text"><strong>SSO Login</strong> — 1 tài khoản duy nhất cho
+                    mọi app (JWT authentication)</span></li>
+            <li><span class="f-icon">🏠</span><span class="f-text"><strong>Dashboard Home</strong> — Landing page hiển
+                    thị app theo quyền user</span></li>
+            <li><span class="f-icon">📱</span><span class="f-text"><strong>Mini App Launcher</strong> — Click vào app →
+                    mở embedded hoặc route</span></li>
+            <li><span class="f-icon">📊</span><span class="f-text"><strong>Quick Report</strong> — Báo cáo KPI cho
+                    Manager, data từ DWH Gold layer</span></li>
+            <li><span class="f-icon">⚙️</span><span class="f-text"><strong>Admin Panel</strong> — Quản lý user, phân
+                    quyền, thêm/ẩn app</span></li>
+            <li><span class="f-icon">🔔</span><span class="f-text"><strong>Notification Center</strong> — Alert tập
+                    trung: production delay, dead stock, SLA</span></li>
+            <li><span class="f-icon">📱</span><span class="f-text"><strong>Responsive / PWA</strong> — Dùng được trên
+                    mobile cho Sale tại cửa hàng</span></li>
+        </ul>
+
+
+    </section>
+    <div class="divider"></div>
+
+    <!-- ========== LEAD SCORING ========== -->
+    <section id="lead-scoring">
+        <div class="section-label">Dự án 5 — Core</div>
+        <h2 class="section-title">🎯 Lead Scoring — Chấm Điểm & Phân Hạng Tiềm Năng Khách Hàng</h2>
+        <p class="section-desc"><strong>Tự động chấm điểm khách hàng từ hành vi tương tác thực tế, phân bổ đến Sale qua Portal và theo dõi tỷ lệ chuyển đổi.</strong><br>Tự động hóa quá trình đánh giá mức độ tiềm năng của từng lead dựa trên hành vi tương tác thực tế, phân bổ thông minh cho Sale và đo lường hiệu quả chuyển đổi.</p>
+        <table class="ctx-table">
+            <tr>
+                <td class="ctx-red" style="width:200px;">🔴 Thực trạng</td>
+                <td>
+                    • Sale đang xử lý lead theo kiểu "ai nhớ thì chăm", không có thứ tự ưu tiên.<br>
+                    • Không phân biệt được đâu là lead "nóng" sắp đặt cọc, đâu là lead lạnh — dẫn đến lãng phí nguồn lực follow-up.
+                </td>
+            </tr>
+            <tr>
+                <td class="ctx-gold">🟡 Thay đổi</td>
+                <td>
+                    • Xây dựng Scoring Engine tính điểm tự động từ dữ liệu CRM + Call log.<br>
+                    • Phân loại lead thành nhóm (Hot / Warm / Cold) và phân bổ tự động qua Tierra Portal.
+                </td>
+            </tr>
+            <tr>
+                <td class="ctx-green">🟢 Hiệu quả</td>
+                <td>
+                    • Sale tập trung vào đúng lead tiềm năng cao, tăng Booking Rate.<br>
+                    • Manager theo dõi được tỷ lệ follow-up và CVR theo từng nhóm điểm theo thời gian thực.
+                </td>
+            </tr>
+        </table>
+
+        <h3 style="font-size:1rem;margin:30px 0 16px;color:var(--gold)">Cơ chế chấm điểm (Scoring Logic)</h3>
+        <div class="grid-3">
+            <div class="card">
+                <h3>💬 Tương tác tin nhắn</h3>
+                <ul>
+                    <li>Số tin nhắn gửi trong 7 ngày gần nhất</li>
+                    <li>Tỷ lệ phản hồi của khách</li>
+                    <li>Thời điểm nhắn tin (giờ vàng vs. giờ thấp điểm)</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>📞 Lịch sử cuộc gọi</h3>
+                <ul>
+                    <li>Tổng thời gian gọi tích lũy</li>
+                    <li>Số lần gọi thành công trong 30 ngày</li>
+                    <li>Tần suất liên hệ (liên tục vs. ngắt quãng)</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>📊 Hành vi tổng hợp</h3>
+                <ul>
+                    <li>Số lần vào cửa hàng / book lịch tư vấn</li>
+                    <li>Thời gian từ lần liên hệ đầu đến hiện tại</li>
+                    <li>Mức độ active trên các kênh (FB, Zalo, Phone)</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3 style="font-size:1rem;margin:30px 0 20px;color:var(--gold)">Luồng Vận Hành Chấm Điểm (User Flow)</h3>
+        <div class="arch-diagram" style="padding:0; border:none; background:transparent; margin-bottom:0; text-align:center;">
+            <div style="display:flex; align-items:stretch; justify-content:center; gap:12px; flex-wrap:wrap; overflow-x:auto; padding-bottom:10px;">
+                
+                <div style="flex:1; min-width:180px; padding:20px 15px; border-radius:12px; background:var(--card-bg); border:1px solid var(--card-border); display:flex; flex-direction:column; align-items:center;">
+                    <div style="font-size:1.8rem; margin-bottom:10px;">📥</div>
+                    <div style="font-size:0.85rem; font-weight:700; color:var(--text); letter-spacing:0.5px;">AntBuddy CRM</div>
+                    <div style="font-size:0.75rem; color:var(--text-muted); margin-top:8px; line-height:1.4;">Chắt lọc lịch sử Chat, Thời lượng gọi, Tương tác KH</div>
+                </div>
+
+                <div style="display:flex; align-items:center; color:var(--gold); font-size:1.5rem; flex-shrink:0;">➔</div>
+
+                <div style="flex:1; min-width:180px; padding:20px 15px; border-radius:12px; background:rgba(200,146,58,0.06); border:1px solid rgba(200,146,58,0.3); display:flex; flex-direction:column; align-items:center;">
+                    <div style="font-size:1.8rem; margin-bottom:10px;">⚙️</div>
+                    <div style="font-size:0.85rem; font-weight:700; color:var(--gold); letter-spacing:0.5px;">Scoring Engine (DWH)</div>
+                    <div style="font-size:0.75rem; color:var(--text-muted); margin-top:8px; line-height:1.4;">Tổng hợp Data &amp; Tính toán điểm (Hot / Warm / Cold)</div>
+                </div>
+
+                <div style="display:flex; align-items:center; color:var(--gold); font-size:1.5rem; flex-shrink:0;">➔</div>
+
+                <div style="flex:1; min-width:180px; padding:20px 15px; border-radius:12px; background:var(--card-bg); border:1px solid var(--card-border); display:flex; flex-direction:column; align-items:center;">
+                    <div style="font-size:1.8rem; margin-bottom:10px;">🌐</div>
+                    <div style="font-size:0.85rem; font-weight:700; color:var(--text); letter-spacing:0.5px;">Tierra Portal</div>
+                    <div style="font-size:0.75rem; color:var(--text-muted); margin-top:8px; line-height:1.4;">Phân bổ Lead &amp; Hiển thị danh sách đã xếp hạng cho Sale</div>
+                </div>
+
+                <div style="display:flex; align-items:center; color:var(--gold); font-size:1.5rem; flex-shrink:0;">➔</div>
+
+                <div style="flex:1; min-width:180px; padding:20px 15px; border-radius:12px; background:rgba(52,211,153,0.06); border:1px solid rgba(52,211,153,0.3); display:flex; flex-direction:column; align-items:center;">
+                    <div style="font-size:1.8rem; margin-bottom:10px;">🖱️</div>
+                    <div style="font-size:0.85rem; font-weight:700; color:var(--green); letter-spacing:0.5px;">Click &amp; Redirect</div>
+                    <div style="font-size:0.75rem; color:var(--text-muted); margin-top:8px; line-height:1.4;">Sale click vào Lead → Mở thẳng Info trên cửa sổ CRM gốc</div>
+                </div>
+
+            </div>
+        </div>
+
+        <h3 style="font-size:1rem;margin:30px 0 16px;color:var(--gold)">Luồng vận hành</h3>
+        <div class="grid-2">
+            <div class="card">
+                <h3>🤖 Tự động phân bổ qua Portal</h3>
+                <ul>
+                    <li><strong>Hot Lead (Score cao):</strong> Ưu tiên hiện lên đầu danh sách Sale</li>
+                    <li><strong>Warm Lead:</strong> Nhắc nhở follow-up định kỳ (auto reminder)</li>
+                    <li><strong>Cold Lead:</strong> Chuyển sang nurturing tự động (ZNS / Remarketing)</li>
+                    <li>Sale nhận thông báo qua Portal ngay khi lead tăng điểm đột biến</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>📈 Tracking & Đo lường</h3>
+                <ul>
+                    <li>Dashboard theo dõi tỷ lệ follow-up của từng Sale theo Lead Score</li>
+                    <li>So sánh CVR (Conversion Rate) giữa các nhóm Hot / Warm / Cold</li>
+                    <li>Phát hiện Sale "bỏ sót" lead tốt — cảnh báo Manager</li>
+                    <li>Tinh chỉnh Scoring Rules theo hiệu quả thực tế (feedback loop)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <div class="divider"></div>
+
+    <!-- ========== ERP GAP ========== -->
+    <section id="erp">
+        <div class="section-label">Dự án 4 — Core</div>
+        <h2 class="section-title">🔍 Tại Sao Phải Đổi ERP?</h2>
+        <p class="section-desc"><strong>Đánh giá vendor, pilot và xây dựng migration plan cho ERP mới thay thế XMSC.</strong><br>ERP hiện tại (XMSC) chỉ có 9 API read-only, không đáp ứng nhu cầu tích hợp và mở rộng
+            2026.</p>
+        <table class="ctx-table">
+            <tr>
+                <td class="ctx-red">🔴 Thực trạng</td>
+                <td>ERP XMSC chỉ có <strong>9 API read-only</strong>, rate limit 10 phút. Không track in-transit (16+
+                    kho), không audit trail, không capacity check. Barcode không khớp với đơn hàng khi đang SX.
+                    <strong>Đánh giá theo 7 lĩnh vực (23 yêu cầu), chỉ đáp ứng 3/23 (13%)</strong>.</td>
+            </tr>
+            <tr>
+                <td class="ctx-gold">🟡 Thay đổi</td>
+                <td>Đánh giá & chuyển sang ERP mới (Odoo/ERPNext/SAP B1). Yêu cầu: full API (read+write), manufacturing
+                    module, inventory tracking real-time, audit trail, capacity planning. Hỗ trợ B2B nếu mở rộng.</td>
+            </tr>
+            <tr>
+                <td class="ctx-green">🟢 Hiệu quả</td>
+                <td>Track hàng real-time (16+ kho). Audit trail cho mọi thao tác. Capacity check chặn overbooking → giảm
+                    trễ giao. Barcode từ đầu SX → link chính xác đơn hàng↔sản phẩm. API đầy đủ cho tích hợp 2 chiều với
+                    DWH.</td>
+            </tr>
+            <tr>
+                <td class="ctx-blue">💡 Gợi ý thêm</td>
+                <td>• <strong>QR scan tại xưởng</strong>: Thợ quét QR mỗi công đoạn SX → tracking real-time
+                    progress<br>• <strong>Supplier portal</strong>: NCC kim cương tra cứu đơn đặt, cập nhật trạng thái
+                    giao<br>• <strong>Order tracking cho khách</strong>: Khách nhập SĐT → xem đơn hàng đang ở công đoạn
+                    nào</td>
+            </tr>
+        </table>
+        <div class="highlight-box"
+            style="background:linear-gradient(135deg,rgba(248,113,113,0.08),rgba(248,113,113,0.02));border-color:rgba(248,113,113,0.25)">
+            <div class="big" style="color:var(--red)">13%</div>
+            <p style="font-weight:600; font-size:1.1rem; color: var(--red);">Mức độ đáp ứng năng lực so với chuẩn mực ngành (3/23 yêu cầu lõi)</p>
+            <p style="font-size:.9rem;color:var(--text-muted); margin-top: 15px">
+                📦 Kho bãi (<strong style="color:var(--red)">0/3</strong>) &nbsp;•&nbsp;
+                🏭 Sản xuất (<strong style="color:var(--yellow)">1/4</strong>) &nbsp;•&nbsp;
+                🔌 Khởi chạy API (<strong style="color:var(--yellow)">1/4</strong>) &nbsp;•&nbsp;
+                📋 Chất lượng dữ liệu (<strong style="color:var(--red)">0/4</strong>)<br>
+                🛒 Xử lý đơn hàng (<strong style="color:var(--yellow)">1/3</strong>) &nbsp;•&nbsp;
+                🔗 Tích hợp DWH (<strong style="color:var(--red)">0/3</strong>) &nbsp;•&nbsp;
+                📈 Khả năng Scaling (<strong style="color:var(--red)">0/2</strong>)
+            </p>
+            <p style="font-size:.9rem;color:var(--red); margin-top: 12px; font-style: italic;">
+                "Toàn bộ 23 tiêu chuẩn đánh giá hệ thống quản trị hiện đại cho thấy ERP hiện hữu không đủ sức gánh vác việc mở rộng Data Warehouse hay Dịch vụ Vệ tinh của Tierra."
+            </p>
+
+            <button onclick="toggleErpDetails()" id="erp-btn" style="display:inline-flex;align-items:center;gap:8px;margin-top:16px;padding:8px 16px;background:rgba(248,113,113,0.1);border:1px solid rgba(248,113,113,0.3);border-radius:6px;cursor:pointer;font-size:.85rem;font-weight:600;color:var(--red);transition:all .2s;">
+                <span id="erp-btn-icon">▶</span> 
+                <span id="erp-btn-text">Xem chi tiết 23 tiêu chí kỹ thuật</span>
+            </button>
+
+            <div id="erp-details-content" style="display:none; margin-top:20px; text-align:left; background:rgba(0,0,0,0.15); padding:20px; border-radius:10px; border:1px solid rgba(248,113,113,0.2);">
+                <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));gap:20px;">
+                    <div>
+                        <h4 style="color:var(--gold);font-size:.9rem;margin-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:5px;">📦 Tồn kho & Kho bãi (0/4)</h4>
+                        <ul style="font-size:.8rem;color:var(--text);margin:0;padding-left:0;list-style:none;line-height:1.6;">
+                            <li>❌ Kiểm kê Real-time đa chi nhánh</li>
+                            <li>❌ Quét Barcode/RFID qua Mobile App</li>
+                            <li>❌ Theo dõi hàng luân chuyển (In-transit)</li>
+                            <li>❌ Cảnh báo Reorder Point / MRP tự động</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color:var(--gold);font-size:.9rem;margin-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:5px;">🏭 Sản xuất & Cung ứng (1/4)</h4>
+                        <ul style="font-size:.8rem;color:var(--text);margin:0;padding-left:0;list-style:none;line-height:1.6;">
+                            <li style="color:var(--green)">✅ Lệnh sản xuất (Work Order) cơ bản</li>
+                            <li>❌ Định mức nguyên liệu (BoM) trang sức</li>
+                            <li>❌ Hoạch định năng lực (Capacity Planning)</li>
+                            <li>❌ Tracking bù trừ hao hụt vàng/đá quý tại xưởng</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color:var(--gold);font-size:.9rem;margin-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:5px;">🛒 Xử lý Đơn hàng (1/4)</h4>
+                        <ul style="font-size:.8rem;color:var(--text);margin:0;padding-left:0;list-style:none;line-height:1.6;">
+                            <li style="color:var(--green)">✅ Ghi nhận Sales Order (Quote-to-Cash) thủ công</li>
+                            <li>❌ Tích hợp Omni-channel (POS, Web, CRM)</li>
+                            <li>❌ Điều phối đơn (Order Routing) đa xưởng</li>
+                            <li>❌ Cổng thanh toán hợp nhất (Payment Gateway)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color:var(--gold);font-size:.9rem;margin-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:5px;">🔌 Kiến trúc API (0/4)</h4>
+                        <ul style="font-size:.8rem;color:var(--text);margin:0;padding-left:0;list-style:none;line-height:1.6;">
+                            <li>❌ Đồng bộ 2 chiều (Bi-directional Sync) CRM</li>
+                            <li>❌ API Write-back để cập nhật dữ liệu từ dịch vụ ngoài</li>
+                            <li>❌ Giao tiếp Real-time qua Event/Webhooks</li>
+                            <li>❌ Tích hợp hệ sinh thái 3PL (Giao nhận)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color:var(--gold);font-size:.9rem;margin-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:5px;">📊 Dữ liệu & Phân tích (1/4)</h4>
+                        <ul style="font-size:.8rem;color:var(--text);margin:0;padding-left:0;list-style:none;line-height:1.6;">
+                            <li style="color:var(--green)">✅ Xuất báo cáo hoạt động (Operational Reporting)</li>
+                            <li>❌ Kiến trúc CDC (Change Data Capture) đẩy về DWH</li>
+                            <li>❌ Chuẩn hóa Master Data Management (MDM)</li>
+                            <li>❌ Bảng điều khiển Real-time BI Dashboards</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color:var(--gold);font-size:.9rem;margin-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:5px;">🛡️ Hệ thống & Scalability (0/3)</h4>
+                        <ul style="font-size:.8rem;color:var(--text);margin:0;padding-left:0;list-style:none;line-height:1.6;">
+                            <li>❌ Nền tảng Cloud-Native (Auto-Scaling ngang)</li>
+                            <li>❌ Bảo mật dữ liệu doanh nghiệp chuẩn SOC2 / GDPR</li>
+                            <li>❌ Phân quyền chi tiết (Granular RBAC)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <script>
+            function toggleErpDetails() {
+                var c = document.getElementById('erp-details-content');
+                var icon = document.getElementById('erp-btn-icon');
+                var text = document.getElementById('erp-btn-text');
+                if (c.style.display === 'none') {
+                    c.style.display = 'block'; icon.textContent = '▼'; text.textContent = 'Ẩn chi tiết kỹ thuật';
+                } else {
+                    c.style.display = 'none'; icon.textContent = '▶'; text.textContent = 'Xem chi tiết 23 tiêu chí kỹ thuật';
+                }
+            }
+            </script>
+        </div>
+        <h3 style="font-size:1rem;margin:30px 0 20px;color:var(--gold)">Top 6 Gaps nghiêm trọng nhất</h3>
+        <div class="grid-3">
+            <div class="gap-card critical">
+                <div class="gap-tag critical">Critical</div>
+                <h4>100% API Read-Only</h4>
+                <p>Không write → không tích hợp 2 chiều với bất kỳ hệ thống nào</p>
+            </div>
+            <div class="gap-card critical">
+                <div class="gap-tag critical">Critical</div>
+                <h4>Không track In-Transit</h4>
+                <p>16+ kho nhưng không biết hàng đang ở đâu khi vận chuyển</p>
+            </div>
+            <div class="gap-card critical">
+                <div class="gap-tag critical">Critical</div>
+                <h4>Không có Audit Trail</h4>
+                <p>Không truy vết ai thay đổi tồn kho, khi nào, vì sao</p>
+            </div>
+            <div class="gap-card high">
+                <div class="gap-tag high">High</div>
+                <h4>Không chặn Overbooking</h4>
+                <p>Không capacity check → Sale hẹn tự do → trễ giao hàng</p>
+            </div>
+            <div class="gap-card high">
+                <div class="gap-tag high">High</div>
+                <h4>Rate Limit 10 phút</h4>
+                <p>API bị giới hạn → không đồng bộ real-time</p>
+            </div>
+            <div class="gap-card high">
+                <div class="gap-tag high">High</div>
+                <h4>Barcode sau thành phẩm</h4>
+                <p>Không link sản phẩm đang SX với đơn hàng</p>
+            </div>
+        </div>
+        <h3 style="font-size:1rem;margin:30px 0 20px;color:var(--gold)">ERP Replacement Timeline <span style="font-size:0.8rem; font-style:italic; color:var(--text-muted); font-weight:normal;">(Cần phân tích và trao đổi thêm)</span></h3>
+        <table class="info-table">
+            <tr>
+                <th>Phase</th>
+                <th>Thời gian</th>
+                <th>Công việc</th>
+            </tr>
+            <tr>
+                <td>Đánh giá vendor</td>
+                <td>Mar – Aug 2026</td>
+                <td>Mời demo Odoo, ERPNext, SAP B1. Đánh giá theo checklist gaps. Phân tích yêu cầu.</td>
+            </tr>
+            <tr>
+                <td>Pilot & Selection</td>
+                <td>Sep – Dec 2026</td>
+                <td>Pilot tại 1 cửa hàng với ERP được chọn, chốt hợp đồng.</td>
+            </tr>
+            <tr>
+                <td>Planning</td>
+                <td>Jan – Mar 2027</td>
+                <td>Migration plan chi tiết, data mapping, training</td>
+            </tr>
+            <tr>
+                <td>Triển khai</td>
+                <td>Mar – Aug 2027</td>
+                <td>Phase 1: Inventory & Manufacturing trước</td>
+            </tr>
+        </table>
+    </section>
+    <div class="divider"></div>
+
+    <!-- ========== ẢNH HƯỞNG KHI ĐỔI ERP ========== -->
+    <section>
+        <div class="section-label">Risk Analysis & Migration Impact</div>
+        <h2 class="section-title">🔄 Tác Động Quá Độ ERP Lên Chiều Dọc Hệ Sinh Thái Dữ Liệu</h2>
+        <p class="section-desc">Kiến trúc Độc lập Hệ thống (Agnostic Architecture) của Data Warehouse được cấu trúc chủ đích nhằm cô lập hoàn toàn các rủi ro kỹ thuật khi thay thế hệ thống lõi. Quá trình chuyển đổi ERP quy mô lớn trong tương lai sẽ <strong>được đảm bảo không làm gián đoạn</strong> tới các hoạt động điều hành và báo cáo hiện hữu.</p>
+        <div class="impact-grid">
+            <div class="impact-box change">
+                <h4>⚠️ Tinh chỉnh cục bộ (Lớp Cấp Thấp)</h4>
+                <ul>
+                    <li><strong>Connections</strong>: Cấu hình lại luồng hút dữ liệu (Ingestion Pipeline) từ API mới.</li>
+                    <li><strong>Bronze Layer</strong>: Tái ánh xạ cấu trúc bảng thô (Raw Schema) từ ERP mới.</li>
+                    <li><strong>Silver Layer</strong>: Chuẩn hóa lại cấu trúc ánh xạ trường (Field Mapping) cho tương thích hệ quy chiếu gốc.</li>
+                </ul>
+                <p style="margin-top:16px;font-size:.85rem;color:var(--red);font-weight:600">Thời gian tái cấu trúc dự kiến: ~7–14 tuần (chỉ DevOps/DE)</p>
+            </div>
+            <div class="impact-box nochange">
+                <h4>🛡️ Bảo toàn tuyệt đối (Lớp Cấp Cao)</h4>
+                <ul>
+                    <li><strong>Gold Layer</strong>: Nguyên trạng toàn bộ mô hình dữ liệu (Data Model) & Định nghĩa ranh giới KPI.</li>
+                    <li><strong>Business Intelligence</strong>: 100% các báo cáo Power BI & Executive Dashboards được giữ nguyên.</li>
+                    <li><strong>Ecosystem</strong>: Các luồng truy xuất tự động từ Mini App, Tierra Portal, và Machine Learning Models.</li>
+                </ul>
+                <p style="margin-top:16px;font-size:.85rem;color:var(--green);font-weight:600">Mức độ gián đoạn End-User: 0%</p>
+            </div>
+        </div>
+        <div class="highlight-box"
+            style="background:linear-gradient(135deg,rgba(248,113,113,0.04),rgba(52,211,153,0.04));border-color:rgba(201,168,76,0.2)">
+            <p style="font-size:1.1rem;font-weight:600; margin-bottom: 8px;">Giá trị phòng thủ chiến lược của thiết kế Data Warehouse mới:</p>
+            <p style="font-size:1.0rem; color: var(--text);">Hóa giải rủi ro <span style="color:var(--red); font-weight:600">"tê liệt hệ thống phân tích từ 6–12 tháng"</span> — kịch bản tổn thất tồi tệ nhất thường xảy ra ở các doanh nghiệp tiến hành thay ERP mà không sở hữu một DWH độc lập làm vùng đệm.</p>
+        </div>
+    </section>
+    <div class="divider"></div>
+
+
+    <!-- ========== BẢO MẬT & HỢP QUY NĐ 13 ========== -->
+    <section id="nd13-compliance">
+        <div class="section-label">Dự án 6 — Core / Information Security & Compliance</div>
+        <h2 class="section-title">⚖️ Hợp Quy Kỹ Thuật (NĐ 13) & Bảo Mật Khách Hàng (Security-First)</h2>
+        <p class="section-desc">Với tệp khách hàng cao cấp và giá trị giao dịch lớn (20–500tr/đơn), dữ liệu cá nhân tại Tierra mang tính riêng tư tuyệt đối. Việc để lộ lọt không chỉ gây rủi ro pháp lý (NĐ 13/2023/NĐ-CP) mà còn phá hủy vĩnh viễn uy tín thương hiệu.</p>
+
+        <div class="highlight-box" style="background:linear-gradient(135deg,rgba(248,113,113,0.08),rgba(248,113,113,0.02));border-color:rgba(248,113,113,0.25)">
+            <p style="font-size:1.1rem;font-weight:600; margin-bottom: 8px;">⚠️ Điểm mù hiện tại của hệ thống:</p>
+            <p style="font-size:1.0rem; color: var(--text);">Dữ liệu khách hàng đang <strong>phân mảnh và không được kiểm soát</strong> trên phân hệ mạng xã hội cá nhân của Sales (Zalo, Note riêng) và Google Sheets gửi nội bộ. Hệ thống hiện tại hoàn toàn thiếu <strong>Truy Vết (Audit Trail)</strong> và <strong>Phân Quyền (RBAC)</strong> chuyên sâu.</p>
+        </div>
+
+        <h3 style="font-size:1rem;margin:30px 0 20px;color:var(--gold)">Khung năng lực bảo mật áp dụng cho toàn bộ dự án 2026</h3>
+        <div class="grid-4">
+            <div class="card" style="border-color:rgba(52,211,153,0.3); padding: 16px;">
+                <h3 style="font-size:1rem; margin-bottom: 12px; display: flex; align-items: center; justify-content: center;">🔐 Access</h3>
+                <p style="font-size: 0.85rem; text-align: center;">Phân quyền RBAC nghiêm ngặt (Sale chỉ thấy lead mình). Tích hợp SSO, xác thực 2 bước (2FA) bắt buộc.</p>
+            </div>
+            <div class="card" style="border-color:rgba(52,211,153,0.3); padding: 16px;">
+                <h3 style="font-size:1rem; margin-bottom: 12px; display: flex; align-items: center; justify-content: center;">🔑 Encryption</h3>
+                <p style="font-size: 0.85rem; text-align: center;">Mã hóa API bằng HTTPS/TLS. Che giấu SĐT (Masking). Tuyệt đối cấm Export/File hàng loạt.</p>
+            </div>
+            <div class="card" style="border-color:rgba(52,211,153,0.3); padding: 16px;">
+                <h3 style="font-size:1rem; margin-bottom: 12px; display: flex; align-items: center; justify-content: center;">📋 Audit</h3>
+                <p style="font-size: 0.85rem; text-align: center;">Ghi nhận (Log) toàn bộ lịch sử thao tác dữ liệu: ai truy cập, lúc nào. Cảnh báo thời gian thực.</p>
+            </div>
+            <div class="card" style="border-color:rgba(52,211,153,0.3); padding: 16px;">
+                <h3 style="font-size:1rem; margin-bottom: 12px; display: flex; align-items: center; justify-content: center;">⚖️ Compliance</h3>
+                <p style="font-size: 0.85rem; text-align: center;">Thiết kế các hệ thống nội bộ tuân thủ quy chuẩn bảo vệ dữ liệu NĐ 13/2023/NĐ-CP.</p>
+            </div>
+        </div>
+        
+        <div class="highlight-box" style="margin-top: 40px; background:linear-gradient(135deg,rgba(52,211,153,0.08),rgba(52,211,153,0.02));border-color:rgba(52,211,153,0.25)">
+            <p style="font-size:1.1rem;font-weight:600; margin-bottom: 8px;"><span style="color:var(--green)">Security-by-Design</span></p>
+            <p style="font-size:1.0rem; color: var(--text);">Bảo mật là tiêu chí <strong>Mặc Định (Default)</strong> cốt lõi trong cấu trúc DWH, Mini-Apps, và khi lựa chọn ERP mới, chứ không phải một gói tiện ích lắp thêm sau khi hệ thống đã đi vào hoạt động.</p>
+        </div>
+
+        <h3 style="font-size:1.2rem;margin:50px 0 20px;color:var(--gold)">⚖️ Checklist Văn bản Nội bộ: Kỹ thuật & Vận hành DWH (Đạt chuẩn NĐ 13)</h3>
+        <p style="font-size:0.95rem; margin-bottom:30px; color:var(--text-muted);">Hệ thống danh mục tài liệu BẮT BUỘC nhằm đáp ứng yêu cầu thanh tra theo Nghị định 13/2023/NĐ-CP và là "kim chỉ nam" chuẩn hóa quy trình cho đội ngũ Data.</p>
+        
+        <div class="grid-2" style="margin-bottom: 20px;">
+            <div class="card" style="border-left: 3px solid #3b82f6; padding: 20px;">
+                <h4 style="font-size:0.95rem; margin-bottom: 12px; color:var(--text); display:flex; align-items:center; gap:8px;">1. Bản đồ Dữ liệu (Inventory & Mapping)</h4>
+                <div style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;">
+                    <p style="margin-bottom: 8px;"><strong>🗂️ Danh mục dữ liệu (Data Catalog):</strong> Phân loại Table/Column chứa dữ liệu Cơ bản vs Nhạy cảm.</p>
+                    <p style="margin-bottom: 8px;"><strong>🗺️ Sơ đồ luồng (Data Flow Diagram):</strong> Vẽ chi tiết luồng từ Source → ETL → DWH → Dashboard.</p>
+                    <p style="margin-bottom: 0;"><strong>🎯 Bản mô tả mục đích sử dụng:</strong> Giải trình lý do thu thập, giới hạn ở mức "Cần & Đủ".</p>
+                </div>
+            </div>
+            
+            <div class="card" style="border-left: 3px solid var(--gold); padding: 20px;">
+                <h4 style="font-size:0.95rem; margin-bottom: 12px; color:var(--text); display:flex; align-items:center; gap:8px;">2. Quy trình Kỹ thuật (Technical Procedures)</h4>
+                <div style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;">
+                    <p style="margin-bottom: 8px;"><strong>🔒 Ẩn danh & Mã hóa:</strong> Quy định thuật toán Dynamic Data Masking và quản lý KMS/Key.</p>
+                    <p style="margin-bottom: 8px;"><strong>👤 Phân quyền truy cập (RBAC):</strong> Áp dụng nghiêm ngặt nguyên tắc "Quyền tối thiểu" (Least Privilege).</p>
+                    <p style="margin-bottom: 0;"><strong>🗑️ Lưu trữ & Hủy bỏ:</strong> Quy định thời gian lưu và cách thức xóa vĩnh viễn (Hard Delete).</p>
+                </div>
+            </div>
+            
+            <div class="card" style="border-left: 3px solid var(--red); padding: 20px;">
+                <h4 style="font-size:0.95rem; margin-bottom: 12px; color:var(--text); display:flex; align-items:center; gap:8px;">3. Quản lý Sự cố & Quyền lợi (Operations)</h4>
+                <div style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;">
+                    <p style="margin-bottom: 8px;"><strong>🚨 Ứng phó rò rỉ (Data Breach):</strong> Kịch bản báo cáo sự cố Cục A05 (BCA) trong 72 giờ.</p>
+                    <p style="margin-bottom: 0;"><strong>⚖️ Xử lý yêu cầu chủ thể:</strong> Giao thức Tra cứu / Chỉnh sửa / Rút lại sự đồng ý từ Khách Hàng.</p>
+                </div>
+            </div>
+
+            <div class="card" style="border-left: 3px solid var(--green); padding: 20px;">
+                <h4 style="font-size:0.95rem; margin-bottom: 12px; color:var(--text); display:flex; align-items:center; gap:8px;">4. Hợp tác & Bên thứ ba (Third-party)</h4>
+                <div style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;">
+                    <p style="margin-bottom: 0;"><strong>🤝 Thỏa thuận xử lý dữ liệu (DPA):</strong> Cam kết bảo mật, ràng buộc pháp lý chịu trách nhiệm bắt buộc đối với đối tác cung cấp dịch vụ (SaaS / Outsource ETL).</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="highlight-box" style="margin-top: 10px; margin-bottom: 0; background:linear-gradient(135deg,rgba(200,146,58,0.08),rgba(200,146,58,0.02));border-color:rgba(200,146,58,0.25)">
+            <p style="font-size:1.0rem;font-weight:600; margin-bottom: 10px;"><span style="color:var(--gold)">💡 Mẹo thực thi chuyên sâu (Technical Tips):</span></p>
+            <ul style="font-size:0.9rem; color: var(--text); padding-left:20px; line-height:1.6; margin:0;">
+                <li style="margin-bottom: 8px;"><strong>Gắn Metadata trực tiếp vào DWH:</strong> Dùng Data Catalog tool (Google Dataplex/DataHub) tự động Tag PII/Sensitive. Khi cần xuất báo cáo cho thanh tra chỉ mất 5 phút (ra 50% hồ sơ).</li>
+                <li style="margin-bottom: 8px;"><strong>Sử dụng Infrastructure as Code (IaC):</strong> Dùng Terraform script cấp phát IAM làm minh chứng pháp lý cho "Quy trình phân quyền" hoàn hảo.</li>
+                <li><strong>Tích cực triển khai Consent Flag:</strong> Tạo trường <code style="background:var(--card-bg);padding:2px 6px;border-radius:4px;color:#ec4899;border:1px solid rgba(255,255,255,0.1);font-family:monospace;font-size:0.8rem;">is_consented</code> trong Dimension_Customer. Nếu cờ False, Pipeline ETL tự động Drop/Mask record đó. Tối thượng của việc tuân thủ ý chí KH.</li>
+            </ul>
+        </div>
+
+        <h3 style="font-size:1rem;margin:30px 0 20px;color:var(--gold)">Checklist Các Công Việc Cần Làm Ngay (Action Items) cho Dự Án 6</h3>
+        <ul class="feature-list" style="margin-bottom:40px;">
+            <li><span class="f-icon">📝</span><span class="f-text"><strong>1. Rà soát Data Catalog:</strong> Quét toàn bộ hệ thống Database hiện tại để lấy ra & phân loại các field chứa Dữ liệu Cá nhân (PII).</span></li>
+            <li><span class="f-icon">🔐</span><span class="f-text"><strong>2. Ban hành Quy chế RBAC:</strong> Viết tài liệu lưu hành nội bộ nhằm định nghĩa giới hạn phân cấp thẩm quyền truy cập (Role-Based Access Control) cho Data Team & Sales.</span></li>
+            <li><span class="f-icon">💻</span><span class="f-text"><strong>3. Code Data Masking:</strong> Triển khai kỹ thuật che giấu dữ liệu (Dynamic Masking) SĐT/Email ngay trên tầng View của Data Warehouse.</span></li>
+            <li><span class="f-icon">⚖️</span><span class="f-text"><strong>4. Soạn thảo biểu mẫu DPA:</strong> Làm việc với Pháp chế để chuẩn bị Phụ lục Thỏa thuận Xử lý Dữ liệu bắt buộc nhằm ký với nhà cung cấp Cloud/ERP bên thứ ba.</span></li>
+            <li><span class="f-icon">🚨</span><span class="f-text"><strong>5. Lập Kịch bản Sự cố:</strong> Viết khung quy trình và diễn tập ứng phó rò rỉ dữ liệu (báo cáo Cục A05 trong 72h).</span></li>
+        </ul>
+    </section>
+    <div class="divider"></div>
+    <section id="satellite">
+        <div class="section-label">Future Satellite Projects</div>
+        <h2 class="section-title">💡 Gợi Ý Phát Triển Dự Án Vệ Tinh (Ưu Tiên & Khả Thi Nhất)</h2>
+        <p class="section-desc">Trong lộ trình chuyển đổi và tối ưu, 2 hệ thống vệ tinh dưới đây mang lại tác động trực tiếp và có tính khả thi cao nhất nhằm tối đa hóa trải nghiệm khách hàng cũng như năng lực R&D sản phẩm.</p>
+        
+        <div class="grid-2" style="margin-top: 30px;">
+            <div class="card" style="border-left: 4px solid var(--gold); padding: 24px;">
+                <h3 style="font-size:1.15rem; margin-bottom: 12px; display: flex; align-items: center;"><span style="font-size:1.5rem; margin-right:8px;">💬</span> Tự Động Phản Hồi Mạng Xã Hội (Auto-Reply)</h3>
+                <p style="font-size: 0.95rem; line-height: 1.5; color: var(--text);">Thiết lập kịch bản kết nối tự động trên các nền tảng Facebook/Zalo. Cơ chế này đảm bảo tốc độ phản hồi tính bằng giây trước các bình luận hoặc tin nhắn của khách hàng. Việc tương tác tức thì (First Touchpoint) không chỉ giải phóng rào cản nhân sự trực page, mà còn gia tăng trực tiếp tỷ lệ giữ chân khách hàng (Booking Rate) ở giai đoạn nóng nhất.</p>
+            </div>
+            <div class="card" style="border-left: 4px solid var(--gold); padding: 24px;">
+                <h3 style="font-size:1.15rem; margin-bottom: 12px; display: flex; align-items: center;"><span style="font-size:1.5rem; margin-right:8px;">🧠</span> ML Phân Loại Đánh Giá & Thị Hiếu</h3>
+                <p style="font-size: 0.95rem; line-height: 1.5; color: var(--text);">Ứng dụng Machine Learning phân tích ngữ nghĩa (NLP) tự động phân loại hàng ngàn đánh giá, phản hồi của khách hàng qua mọi kênh. Mô hình sẽ cấu trúc hóa các sắc thái (Sentiment Analysis) thành Insight Cốt Lõi, qua đó chỉ ra trực tiếp các vấn đề cần khắc phục ở dây chuyền chế tác hoặc gợi ý xu hướng trang sức mới phục vụ khối Thu mua/Sản xuất.</p>
+            </div>
+        </div>
+
+        <h3 style="font-size:1.15rem;margin:50px 0 20px;color:var(--text-muted); text-align: left; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px;">Các Đề Xuất Phát Triển Tiềm Năng Khác Dành Cho Lộ Trình Dài Hạn</h3>
+        
+        <h3 style="font-size:1rem;margin:30px 0 20px;color:var(--gold)">🤖 Chatbot & AI</h3>
+        <div class="suggest-grid">
+            <div class="suggest-card">
+                <div class="s-icon">🤖</div>
+                <h4>Chatbot CSKH</h4>
+                <p>AI chatbot trên FB/Zalo — FAQ, gợi ý sản phẩm, đặt lịch.</p>
+            </div>
+            <div class="suggest-card">
+                <div class="s-icon">💬</div>
+                <h4>Chatbot Nội Bộ</h4>
+                <p>Nhân viên tra cứu tồn kho, đơn hàng, KPI, SOP.</p>
+            </div>
+            <div class="suggest-card">
+                <div class="s-icon">🎯</div>
+                <h4>AI Product Recommend</h4>
+                <p>Gợi ý sản phẩm theo lịch sử mua & phân khúc khách. 2–3 tháng.</p>
+            </div>
+            <div class="suggest-card">
+                <div class="s-icon">✍️</div>
+                <h4>AI Content Generation</h4>
+                <p>Tự tạo caption, mô tả SP theo tone brand.</p>
+            </div>
+        </div>
+        
+        <h3 style="font-size:1rem;margin:30px 0 20px;color:var(--gold)">⚡ Tự Động Hóa</h3>
+        <div class="suggest-grid">
+            <div class="suggest-card">
+                <div class="s-icon">📅</div>
+                <h4>Auto Booking</h4>
+                <p>Khách book lịch online → Calendar sync + ZNS reminder.</p>
+            </div>
+            <div class="suggest-card">
+                <div class="s-icon">📋</div>
+                <h4>QR Scan SX</h4>
+                <p>Thợ quét QR mỗi công đoạn → tracking real-time.</p>
+            </div>
+            <div class="suggest-card">
+                <div class="s-icon">📧</div>
+                <h4>Auto CSAT Survey</h4>
+                <p>Giao hàng 7 ngày → auto ZNS khảo sát → flag score thấp.</p>
+            </div>
+            <div class="suggest-card">
+                <div class="s-icon">🧾</div>
+                <h4>Auto E-Invoice</h4>
+                <p>Sau thanh toán → tự xuất hóa đơn điện tử + email.</p>
+            </div>
+        </div>
+        
+        <h3 style="font-size:1rem;margin:30px 0 20px;color:var(--gold)">📊 Advanced Analytics</h3>
+        <div class="suggest-grid">
+            <div class="suggest-card">
+                <div class="s-icon">🧠</div>
+                <h4>Lead Scoring</h4>
+                <p>ML dự đoán xác suất close deal.</p>
+            </div>
+            <div class="suggest-card">
+                <div class="s-icon">📉</div>
+                <h4>Churn Prediction</h4>
+                <p>Dự đoán khách sắp rời bỏ → CX chăm sóc.</p>
+            </div>
+            <div class="suggest-card">
+                <div class="s-icon">📦</div>
+                <h4>Demand Forecasting</h4>
+                <p>Dự đoán nhu cầu theo SKU/tháng.</p>
+            </div>
+            <div class="suggest-card">
+                <div class="s-icon">🏪</div>
+                <h4>Order Tracking</h4>
+                <p>Khách nhập SĐT → xem trạng thái SX.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ========== NGÂN SÁCH ========== -->
+    <section id="budget">
+        <div class="section-label">Budget Planning</div>
+        <h2 class="section-title">💰 Ngân Sách & Hạ Tầng Triển Khai</h2>
+        <p class="section-desc">So sánh 3 phương án hạ tầng cho dự án Data Warehouse & hệ sinh thái IT 2026 — từ tiết kiệm đến enterprise-grade.</p>
+
+        <!-- Option Cards -->
+        <p style="font-size:.85rem;color:var(--text-muted);margin-bottom:24px;">Nguồn cung cấp: <strong>Netvas Cloud</strong> — VPS đặt máy chủ tại Việt Nam, uptime 99.9%, hỗ trợ 24/7. So sánh với phương án tự build máy chủ nội bộ.</p>
+        <div class="grid-3" style="margin-bottom: 40px;">
+
+            <!-- Netvas SSD 03 -->
+            <div class="card" style="border-top: 4px solid #4a7c59; position: relative;">
+                <div style="position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:#4a7c59;color:#fff;font-size:.7rem;font-weight:700;padding:4px 14px;border-radius:0 0 8px 8px;letter-spacing:1px;">RECOMMENDED 2026</div>
+                <h3 style="margin-top:16px;">☁️ Netvas VPS Cloud SSD 03</h3>
+                <p style="color:var(--text-muted);font-size:.85rem;margin-bottom:16px;">Phù hợp giai đoạn 2026 — DWH + Airflow + Portal.</p>
+                <table class="info-table" style="margin-bottom:12px;">
+                    <tr><th colspan="2" style="text-align:center;background:rgba(74,124,89,0.1);color:#4a7c59;">🖥️ Cấu hình</th></tr>
+                    <tr><td>CPU</td><td><strong>08 vCPU</strong></td></tr>
+                    <tr><td>RAM</td><td><strong>16 GB</strong></td></tr>
+                    <tr><td>SSD</td><td>200 GB</td></tr>
+                    <tr><td>Băng thông</td><td>Không giới hạn</td></tr>
+                    <tr><td>Internet VN</td><td>100Mbps / 10Mbps</td></tr>
+                    <tr><td>Uptime SLA</td><td>99.9%</td></tr>
+                    <tr><td>Support</td><td>24/7/365</td></tr>
+                </table>
+                <table class="info-table" style="margin-bottom:16px;">
+                    <tr><th colspan="2" style="text-align:center;background:rgba(74,124,89,0.1);color:#4a7c59;">✅ Ưu điểm</th></tr>
+                    <tr><td>Server đặt tại VN</td><td>Latency thấp, ổn định</td></tr>
+                    <tr><td>Hỗ trợ tiếng Việt</td><td>Dễ liên hệ xử lý sự cố</td></tr>
+                    <tr><td>Đủ tải cho DWH</td><td>16GB RAM chạy PostgreSQL + Airflow</td></tr>
+                    <tr><th colspan="2" style="text-align:center;background:rgba(184,84,80,0.08);color:var(--red);">❌ Nhược điểm</th></tr>
+                    <tr><td>Tự quản lý</td><td>Cần cài đặt &amp; cấu hình thủ công</td></tr>
+                    <tr><td>Không managed DB</td><td>Tự backup, tự monitor</td></tr>
+                </table>
+                <div style="background:rgba(74,124,89,0.08);border-radius:10px;padding:14px;text-align:center;">
+                    <div style="font-size:1.5rem;font-weight:800;color:#4a7c59;">16,200,000 ₫/năm</div>
+                    <div style="font-size:.82rem;color:var(--text-muted);margin-top:4px;">1,350,000 ₫/tháng · Chưa VAT 10%</div>
+                </div>
+            </div>
+
+            <!-- Netvas SSD 04 -->
+            <div class="card" style="border-top: 4px solid #DEAA7C;">
+                <h3>☁️ Netvas VPS Cloud SSD 04</h3>
+                <p style="color:var(--text-muted);font-size:.85rem;margin-bottom:16px;">Phù hợp khi scale lên — ML model + Portal + nhiều Mini App.</p>
+                <table class="info-table" style="margin-bottom:12px;">
+                    <tr><th colspan="2" style="text-align:center;background:rgba(222,170,124,0.1);color:var(--gold);">🖥️ Cấu hình</th></tr>
+                    <tr><td>CPU</td><td><strong>16 vCPU</strong></td></tr>
+                    <tr><td>RAM</td><td><strong>32 GB</strong></td></tr>
+                    <tr><td>SSD</td><td>200 GB</td></tr>
+                    <tr><td>Băng thông</td><td>Không giới hạn</td></tr>
+                    <tr><td>Internet VN</td><td>100Mbps / 10Mbps</td></tr>
+                    <tr><td>Uptime SLA</td><td>99.9%</td></tr>
+                    <tr><td>Support</td><td>24/7/365</td></tr>
+                </table>
+                <table class="info-table" style="margin-bottom:16px;">
+                    <tr><th colspan="2" style="text-align:center;background:rgba(222,170,124,0.1);color:var(--gold);">✅ Ưu điểm</th></tr>
+                    <tr><td>Sức mạnh cao hơn</td><td>32GB RAM đủ chạy ML model song song</td></tr>
+                    <tr><td>Không lo bottleneck</td><td>Dự phòng khi data tăng mạnh</td></tr>
+                    <tr><td>Scale an toàn</td><td>Ổn định khi nhiều user Portal</td></tr>
+                    <tr><th colspan="2" style="text-align:center;background:rgba(184,84,80,0.08);color:var(--red);">❌ Nhược điểm</th></tr>
+                    <tr><td>Chi phí cao hơn SSD 03</td><td>~8 triệu/năm chênh lệch</td></tr>
+                    <tr><td>Có thể dư trong 2026</td><td>Nên bắt đầu SSD 03, nâng sau</td></tr>
+                </table>
+                <div style="background:rgba(222,170,124,0.08);border-radius:10px;padding:14px;text-align:center;">
+                    <div style="font-size:1.5rem;font-weight:800;color:var(--gold);">24,200,000 ₫/năm</div>
+                    <div style="font-size:.82rem;color:var(--text-muted);margin-top:4px;">2,350,000 ₫/tháng · Chưa VAT 10%</div>
+                </div>
+            </div>
+
+            <!-- On-premise -->
+            <div class="card" style="border-top: 4px solid var(--stone);">
+                <h3>🏢 Tự Build Máy Chủ (On-premise)</h3>
+                <p style="color:var(--text-muted);font-size:.85rem;margin-bottom:16px;">Đặt server vật lý tại văn phòng Tierra.</p>
+                <table class="info-table" style="margin-bottom:12px;">
+                    <tr><th colspan="2" style="text-align:center;background:rgba(183,169,151,0.1);color:var(--stone);">🖥️ Cấu hình tương đương</th></tr>
+                    <tr><td>CPU</td><td>Intel Xeon / AMD EPYC</td></tr>
+                    <tr><td>RAM</td><td>32–64 GB ECC</td></tr>
+                    <tr><td>Storage</td><td>2× SSD 500GB RAID 1</td></tr>
+                    <tr><td>UPS, rack, cooling</td><td>Thiết bị đi kèm</td></tr>
+                    <tr><td>Uptime</td><td>Phụ thuộc điện &amp; mạng VP</td></tr>
+                    <tr><td>Support</td><td>Nội bộ tự xử lý</td></tr>
+                </table>
+                <table class="info-table" style="margin-bottom:16px;">
+                    <tr><th colspan="2" style="text-align:center;background:rgba(183,169,151,0.1);color:var(--stone);">✅ Ưu điểm</th></tr>
+                    <tr><td>Data nội bộ 100%</td><td>Không phụ thuộc internet</td></tr>
+                    <tr><td>Không tốn phí tháng</td><td>Chi phí vận hành thấp dài hạn</td></tr>
+                    <tr><th colspan="2" style="text-align:center;background:rgba(184,84,80,0.08);color:var(--red);">❌ Nhược điểm</th></tr>
+                    <tr><td>Đầu tư ban đầu lớn</td><td>80–150 triệu phần cứng</td></tr>
+                    <tr><td>Rủi ro vật lý</td><td>Mất điện, hỏng ổ cứng = mất data</td></tr>
+                    <tr><td>Cần nhân sự IT</td><td>Bảo trì, vá lỗi liên tục</td></tr>
+                    <tr><td>Khó mở rộng</td><td>Nâng cấp phần cứng rất tốn kém</td></tr>
+                </table>
+                <div style="background:rgba(183,169,151,0.08);border-radius:10px;padding:14px;text-align:center;">
+                    <div style="font-size:1.5rem;font-weight:800;color:var(--stone);">80–150 triệu ₫</div>
+                    <div style="font-size:.82rem;color:var(--text-muted);margin-top:4px;">Chi phí đầu tư một lần + bảo trì hàng năm</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bảng so sánh -->
+        <h3 style="font-size:1rem;margin:10px 0 20px;color:var(--gold);">📊 Bảng So Sánh Tổng Quan</h3>
+        <table class="info-table">
+            <tr>
+                <th>Tiêu chí</th>
+                <th style="text-align:center;color:#4a7c59;">☁️ Netvas SSD 03</th>
+                <th style="text-align:center;color:var(--gold);">☁️ Netvas SSD 04</th>
+                <th style="text-align:center;color:var(--stone);">🏢 On-premise</th>
+            </tr>
+            <tr>
+                <td>Chi phí năm đầu</td>
+                <td style="text-align:center;font-weight:600;color:#4a7c59;">~17.8tr (VAT)</td>
+                <td style="text-align:center;font-weight:600;color:var(--gold);">~26.6tr (VAT)</td>
+                <td style="text-align:center;font-weight:600;color:var(--stone);">80–150tr</td>
+            </tr>
+            <tr>
+                <td>Thời gian triển khai</td>
+                <td style="text-align:center;">1–2 ngày</td>
+                <td style="text-align:center;">1–2 ngày</td>
+                <td style="text-align:center;">2–4 tuần</td>
+            </tr>
+            <tr>
+                <td>Rủi ro mất data</td>
+                <td style="text-align:center;color:#4a7c59;">Thấp</td>
+                <td style="text-align:center;color:#4a7c59;">Thấp</td>
+                <td style="text-align:center;color:var(--red);">Cao</td>
+            </tr>
+            <tr>
+                <td>Khả năng scale</td>
+                <td style="text-align:center;color:#4a7c59;">Dễ dàng</td>
+                <td style="text-align:center;color:#4a7c59;">Dễ dàng</td>
+                <td style="text-align:center;color:var(--red);">Khó &amp; tốn kém</td>
+            </tr>
+            <tr>
+                <td>Phù hợp giai đoạn</td>
+                <td style="text-align:center;font-weight:700;color:#4a7c59;">✅ 2026</td>
+                <td style="text-align:center;font-weight:700;">2027+</td>
+                <td style="text-align:center;color:var(--text-muted);">Không khuyến nghị</td>
+            </tr>
+        </table>
+
+        <div class="highlight-box" style="margin-top:30px;background:linear-gradient(135deg,rgba(74,124,89,0.06),rgba(222,170,124,0.04));border-color:rgba(74,124,89,0.2);">
+            <p style="font-weight:600;font-size:1rem;margin-bottom:8px;">📌 Khuyến nghị triển khai:</p>
+            <p style="font-size:.95rem;color:var(--text);">
+                <strong>2026:</strong> Bắt đầu với <strong>Netvas VPS SSD 03</strong> — 8vCPU, 16GB RAM, chi phí <strong>~17.8 triệu/năm (có VAT)</strong>. Đủ mạnh để chạy PostgreSQL, Apache Airflow và Tierra Portal đồng thời. Server đặt tại Việt Nam, latency thấp, hỗ trợ 24/7 tiếng Việt.<br>
+                <strong>2027+:</strong> Nâng lên <strong>Netvas SSD 04</strong> (32GB RAM) khi cần chạy ML model song song hoặc khi số lượng Mini App tăng nhiều.
+            </p>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="cta-section">
+        <h2>Sẵn Sàng Chuyển Đổi Số <span style="color:var(--gold)">2026</span></h2>
+        <p>Đầu tư vào nền tảng công nghệ hôm nay để Tierra Diamond dẫn đầu thị trường trang sức ngày mai.</p>
+        <div class="cta-stats">
+            <div class="cta-stat">
+                <div class="val">6</div>
+                <div class="lbl">Core Projects</div>
+            </div>
+            <div class="cta-stat">
+                <div class="val">Mar–Dec</div>
+                <div class="lbl">2026 Timeline</div>
+            </div>
+            <div class="cta-stat">
+                <div class="val">20+</div>
+                <div class="lbl">Dự án Vệ Tinh Tiềm Năng</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
